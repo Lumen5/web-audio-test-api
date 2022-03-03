@@ -63,16 +63,6 @@ export default class AudioBufferSourceNode extends AudioNode {
   }
 
   @methods.param("[ when ]", validators.isPositiveNumber)
-  @methods.contract({
-    precondition() {
-      if (this._.startTime === Infinity) {
-        throw new TypeError("Cannot call stop without calling start first.");
-      }
-      if (this._.stopTime !== Infinity) {
-        throw new TypeError("Cannot stop more than once.");
-      }
-    }
-  })
   stop(when = 0) {
     this._.stopTime = when;
   }

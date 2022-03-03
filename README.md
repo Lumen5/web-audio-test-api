@@ -1,3 +1,6 @@
+# Disclaimer
+This is a relatively old package, which wasn't maintained for several years. We've forked it so that we have the ability to update bits of it that are no longer compliant with the Web Audio API.
+
 # web-audio-test-api
 [![Build Status](http://img.shields.io/travis/mohayonao/web-audio-test-api.svg?style=flat-square)](https://travis-ci.org/mohayonao/web-audio-test-api)
 [![NPM Version](http://img.shields.io/npm/v/web-audio-test-api.svg?style=flat-square)](https://www.npmjs.org/package/web-audio-test-api)
