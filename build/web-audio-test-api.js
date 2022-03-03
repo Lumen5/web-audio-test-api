@@ -1,17 +1,17 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.WebAudioTestAPI = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.WebAudioTestAPI = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 module.exports = require("./lib").default;
 
 },{"./lib":40}],2:[function(require,module,exports){
 "use strict";
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _desc, _value, _class, _class2, _temp;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _desc, _value, _class, _class2, _temp;
 
 var _Configuration = require("./utils/Configuration");
 
@@ -43,6 +43,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var configuration = _Configuration2.default.getInstance();
 
 var AnalyserNode = (_dec = props.enums([32, 64, 128, 256, 512, 1024, 2048]), _dec2 = props.readonly(), _dec3 = props.typed(validators.isNumber, -100), _dec4 = props.typed(validators.isNumber, 30), _dec5 = props.typed(validators.isNumber, 0.8), _dec6 = methods.param("array", validators.isInstanceOf(Float32Array)), _dec7 = methods.param("array", validators.isInstanceOf(Uint8Array)), _dec8 = methods.param("array", validators.isInstanceOf(Float32Array)), _dec9 = methods.contract({
@@ -51,13 +80,13 @@ var AnalyserNode = (_dec = props.enums([32, 64, 128, 256, 512, 1024, 2048]), _de
       throw new TypeError("not enabled");
     }
   }
-}), _dec10 = methods.param("array", validators.isInstanceOf(Uint8Array)), (_class = (_temp = _class2 = (function (_AudioNode) {
+}), _dec10 = methods.param("array", validators.isInstanceOf(Uint8Array)), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(AnalyserNode, _AudioNode);
 
   function AnalyserNode(admission, context) {
     _classCallCheck(this, AnalyserNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AnalyserNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (AnalyserNode.__proto__ || Object.getPrototypeOf(AnalyserNode)).call(this, admission, {
       name: "AnalyserNode",
       context: context,
       numberOfInputs: 1,
@@ -103,19 +132,19 @@ var AnalyserNode = (_dec = props.enums([32, 64, 128, 256, 512, 1024, 2048]), _de
   }]);
 
   return AnalyserNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["fftSize", "minDecibels", "maxDecibels", "smoothingTimeConstant"], _temp), (_desc = _dec(_class.prototype, "fftSize", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "fftSize")) || _desc, _desc ? Object.defineProperty(_class.prototype, "fftSize", _desc) : void 0, _desc = _dec2(_class.prototype, "frequencyBinCount", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "frequencyBinCount")) || _desc, _desc ? Object.defineProperty(_class.prototype, "frequencyBinCount", _desc) : void 0, _desc = _dec3(_class.prototype, "minDecibels", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "minDecibels")) || _desc, _desc ? Object.defineProperty(_class.prototype, "minDecibels", _desc) : void 0, _desc = _dec4(_class.prototype, "maxDecibels", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "maxDecibels")) || _desc, _desc ? Object.defineProperty(_class.prototype, "maxDecibels", _desc) : void 0, _desc = _dec5(_class.prototype, "smoothingTimeConstant", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "smoothingTimeConstant")) || _desc, _desc ? Object.defineProperty(_class.prototype, "smoothingTimeConstant", _desc) : void 0, _desc = _dec6(_class.prototype, "getFloatFrequencyData", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "getFloatFrequencyData")) || _desc, _desc ? Object.defineProperty(_class.prototype, "getFloatFrequencyData", _desc) : void 0, _desc = _dec7(_class.prototype, "getByteFrequencyData", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "getByteFrequencyData")) || _desc, _desc ? Object.defineProperty(_class.prototype, "getByteFrequencyData", _desc) : void 0, _desc = _dec8(_class.prototype, "getFloatTimeDomainData", _desc = _dec9(_class.prototype, "getFloatTimeDomainData", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "getFloatTimeDomainData")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "getFloatTimeDomainData", _desc) : void 0, _desc = _dec10(_class.prototype, "getByteTimeDomainData", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "getByteTimeDomainData")) || _desc, _desc ? Object.defineProperty(_class.prototype, "getByteTimeDomainData", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["fftSize", "minDecibels", "maxDecibels", "smoothingTimeConstant"], _temp), (_applyDecoratedDescriptor(_class.prototype, "fftSize", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "fftSize"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "frequencyBinCount", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "frequencyBinCount"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "minDecibels", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "minDecibels"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "maxDecibels", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "maxDecibels"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "smoothingTimeConstant", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "smoothingTimeConstant"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getFloatFrequencyData", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "getFloatFrequencyData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getByteFrequencyData", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "getByteFrequencyData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getFloatTimeDomainData", [_dec8, _dec9], Object.getOwnPropertyDescriptor(_class.prototype, "getFloatTimeDomainData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getByteTimeDomainData", [_dec10], Object.getOwnPropertyDescriptor(_class.prototype, "getByteTimeDomainData"), _class.prototype)), _class));
 exports.default = AnalyserNode;
 },{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./utils/Configuration":41,"./validators":56}],3:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _desc, _value, _class;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _desc, _value, _class;
 
 var _Configuration = require("./utils/Configuration");
 
@@ -143,6 +172,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var configuration = _Configuration2.default.getInstance();
 var immigration = _Immigration2.default.getInstance();
 
@@ -154,7 +212,7 @@ var AudioBuffer = (_dec = methods.param("numberOfChannels", validators.isPositiv
   }
 }), _dec10 = methods.returns(validators.isInstanceOf(Float32Array)), _dec11 = methods.param("destination", validators.isInstanceOf(Float32Array)), _dec12 = methods.param("channelNumber", validators.isPositiveInteger), _dec13 = methods.param("[ startInChannel ]", validators.isPositiveInteger), _dec14 = methods.contract({
   precondition: function precondition(destination, channelNumber) {
-    var startInChannel = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+    var startInChannel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
     if (this._.data.length <= channelNumber) {
       throw new TypeError("The {{channelNumber}} provided (" + channelNumber + ") is outside the range [0, " + this._.data.length + ").");
@@ -168,7 +226,7 @@ var AudioBuffer = (_dec = methods.param("numberOfChannels", validators.isPositiv
   }
 }), _dec15 = methods.param("source", validators.isInstanceOf(Float32Array)), _dec16 = methods.param("channelNumber", validators.isPositiveInteger), _dec17 = methods.param("[ startInChannel ]", validators.isPositiveInteger), _dec18 = methods.contract({
   precondition: function precondition(source, channelNumber) {
-    var startInChannel = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+    var startInChannel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
     if (this._.data.length <= channelNumber) {
       throw new TypeError("The {{channelNumber}} provided (" + channelNumber + ") is outside the range [0, " + this._.data.length + ").");
@@ -180,7 +238,7 @@ var AudioBuffer = (_dec = methods.param("numberOfChannels", validators.isPositiv
       throw new TypeError("not enabled");
     }
   }
-}), (_class = (function () {
+}), (_class = function () {
   function AudioBuffer(admission, context, numberOfChannels, length, sampleRate) {
     _classCallCheck(this, AudioBuffer);
 
@@ -233,7 +291,7 @@ var AudioBuffer = (_dec = methods.param("numberOfChannels", validators.isPositiv
   }, {
     key: "copyFromChannel",
     value: function copyFromChannel(destination, channelNumber) {
-      var startInChannel = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+      var startInChannel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
       var source = this._.data[channelNumber].subarray(startInChannel);
 
@@ -242,7 +300,7 @@ var AudioBuffer = (_dec = methods.param("numberOfChannels", validators.isPositiv
   }, {
     key: "copyToChannel",
     value: function copyToChannel(source, channelNumber) {
-      var startInChannel = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+      var startInChannel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
       var clipped = source.subarray(0, Math.min(source.length, this._.length - startInChannel));
 
@@ -280,19 +338,19 @@ var AudioBuffer = (_dec = methods.param("numberOfChannels", validators.isPositiv
   }]);
 
   return AudioBuffer;
-})(), (_desc = _dec(_class.prototype, "__createAudioBuffer", _desc = _dec2(_class.prototype, "__createAudioBuffer", _desc = _dec3(_class.prototype, "__createAudioBuffer", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createAudioBuffer")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createAudioBuffer", _desc) : void 0, _desc = _dec4(_class.prototype, "sampleRate", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "sampleRate")) || _desc, _desc ? Object.defineProperty(_class.prototype, "sampleRate", _desc) : void 0, _desc = _dec5(_class.prototype, "length", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "length")) || _desc, _desc ? Object.defineProperty(_class.prototype, "length", _desc) : void 0, _desc = _dec6(_class.prototype, "duration", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "duration")) || _desc, _desc ? Object.defineProperty(_class.prototype, "duration", _desc) : void 0, _desc = _dec7(_class.prototype, "numberOfChannels", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "numberOfChannels")) || _desc, _desc ? Object.defineProperty(_class.prototype, "numberOfChannels", _desc) : void 0, _desc = _dec8(_class.prototype, "getChannelData", _desc = _dec9(_class.prototype, "getChannelData", _desc = _dec10(_class.prototype, "getChannelData", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "getChannelData")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "getChannelData", _desc) : void 0, _desc = _dec11(_class.prototype, "copyFromChannel", _desc = _dec12(_class.prototype, "copyFromChannel", _desc = _dec13(_class.prototype, "copyFromChannel", _desc = _dec14(_class.prototype, "copyFromChannel", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "copyFromChannel")) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "copyFromChannel", _desc) : void 0, _desc = _dec15(_class.prototype, "copyToChannel", _desc = _dec16(_class.prototype, "copyToChannel", _desc = _dec17(_class.prototype, "copyToChannel", _desc = _dec18(_class.prototype, "copyToChannel", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "copyToChannel")) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "copyToChannel", _desc) : void 0), _class));
+}(), (_applyDecoratedDescriptor(_class.prototype, "__createAudioBuffer", [_dec, _dec2, _dec3], Object.getOwnPropertyDescriptor(_class.prototype, "__createAudioBuffer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "sampleRate", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "sampleRate"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "length", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "length"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "duration", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "duration"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "numberOfChannels", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "numberOfChannels"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getChannelData", [_dec8, _dec9, _dec10], Object.getOwnPropertyDescriptor(_class.prototype, "getChannelData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "copyFromChannel", [_dec11, _dec12, _dec13, _dec14], Object.getOwnPropertyDescriptor(_class.prototype, "copyFromChannel"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "copyToChannel", [_dec15, _dec16, _dec17, _dec18], Object.getOwnPropertyDescriptor(_class.prototype, "copyToChannel"), _class.prototype)), _class));
 exports.default = AudioBuffer;
 },{"./decorators/methods":32,"./decorators/props":33,"./utils/Configuration":41,"./utils/Immigration":42,"./validators":56}],4:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -332,28 +390,48 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var AudioBufferSourceNode = (_dec = props.typed(validators.isNullOrInstanceOf(_AudioBuffer2.default), null), _dec2 = props.audioparam(1), _dec3 = props.audioparam(0), _dec4 = props.typed(validators.isBoolean, false), _dec5 = props.typed(validators.isPositiveNumber, 0), _dec6 = props.typed(validators.isPositiveNumber, 0), _dec7 = props.on("ended"), _dec8 = methods.param("[ when ]", validators.isPositiveNumber), _dec9 = methods.param("[ offset ]", validators.isPositiveNumber), _dec10 = methods.param("[ duration ]", validators.isPositiveNumber), _dec11 = methods.contract({
   precondition: function precondition() {
     if (this._.startTime !== Infinity) {
       throw new TypeError("Cannot start more than once.");
     }
   }
-}), _dec12 = methods.param("[ when ]", validators.isPositiveNumber), _dec13 = methods.contract({
-  precondition: function precondition() {
-    if (this._.startTime === Infinity) {
-      throw new TypeError("Cannot call stop without calling start first.");
-    }
-    if (this._.stopTime !== Infinity) {
-      throw new TypeError("Cannot stop more than once.");
-    }
-  }
-}), (_class = (_temp = _class2 = (function (_AudioNode) {
+}), _dec12 = methods.param("[ when ]", validators.isPositiveNumber), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(AudioBufferSourceNode, _AudioNode);
 
   function AudioBufferSourceNode(admission, context) {
     _classCallCheck(this, AudioBufferSourceNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AudioBufferSourceNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (AudioBufferSourceNode.__proto__ || Object.getPrototypeOf(AudioBufferSourceNode)).call(this, admission, {
       name: "AudioBufferSourceNode",
       context: context,
       numberOfInputs: 0,
@@ -393,9 +471,9 @@ var AudioBufferSourceNode = (_dec = props.typed(validators.isNullOrInstanceOf(_A
   }, {
     key: "start",
     value: function start() {
-      var when = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
-      var offset = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
-      var duration = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+      var when = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
       this._.startTime = when;
       this._.offset = offset;
@@ -404,7 +482,7 @@ var AudioBufferSourceNode = (_dec = props.typed(validators.isNullOrInstanceOf(_A
   }, {
     key: "stop",
     value: function stop() {
-      var when = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
+      var when = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
       this._.stopTime = when;
     }
@@ -458,20 +536,20 @@ var AudioBufferSourceNode = (_dec = props.typed(validators.isNullOrInstanceOf(_A
   }]);
 
   return AudioBufferSourceNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["buffer", "playbackRate", "loop", "loopStart", "loopEnd"], _temp), (_desc = _dec(_class.prototype, "buffer", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "buffer")) || _desc, _desc ? Object.defineProperty(_class.prototype, "buffer", _desc) : void 0, _desc = _dec2(_class.prototype, "playbackRate", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "playbackRate")) || _desc, _desc ? Object.defineProperty(_class.prototype, "playbackRate", _desc) : void 0, _desc = _dec3(_class.prototype, "detune", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "detune")) || _desc, _desc ? Object.defineProperty(_class.prototype, "detune", _desc) : void 0, _desc = _dec4(_class.prototype, "loop", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "loop")) || _desc, _desc ? Object.defineProperty(_class.prototype, "loop", _desc) : void 0, _desc = _dec5(_class.prototype, "loopStart", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "loopStart")) || _desc, _desc ? Object.defineProperty(_class.prototype, "loopStart", _desc) : void 0, _desc = _dec6(_class.prototype, "loopEnd", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "loopEnd")) || _desc, _desc ? Object.defineProperty(_class.prototype, "loopEnd", _desc) : void 0, _desc = _dec7(_class.prototype, "onended", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "onended")) || _desc, _desc ? Object.defineProperty(_class.prototype, "onended", _desc) : void 0, _desc = _dec8(_class.prototype, "start", _desc = _dec9(_class.prototype, "start", _desc = _dec10(_class.prototype, "start", _desc = _dec11(_class.prototype, "start", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "start")) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "start", _desc) : void 0, _desc = _dec12(_class.prototype, "stop", _desc = _dec13(_class.prototype, "stop", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "stop")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "stop", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["buffer", "playbackRate", "loop", "loopStart", "loopEnd"], _temp), (_applyDecoratedDescriptor(_class.prototype, "buffer", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "buffer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "playbackRate", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "playbackRate"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "detune", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "detune"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "loop", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "loop"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "loopStart", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "loopStart"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "loopEnd", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "loopEnd"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onended", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "onended"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "start", [_dec8, _dec9, _dec10, _dec11], Object.getOwnPropertyDescriptor(_class.prototype, "start"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "stop", [_dec12], Object.getOwnPropertyDescriptor(_class.prototype, "stop"), _class.prototype)), _class));
 exports.default = AudioBufferSourceNode;
 },{"./AudioBuffer":3,"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/toSeconds":55,"./validators":56}],5:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _dec24, _dec25, _dec26, _dec27, _dec28, _dec29, _dec30, _dec31, _dec32, _dec33, _dec34, _dec35, _dec36, _dec37, _dec38, _dec39, _dec40, _dec41, _dec42, _dec43, _dec44, _dec45, _dec46, _desc, _value, _class;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _dec24, _dec25, _dec26, _dec27, _dec28, _dec29, _dec30, _dec31, _dec32, _dec33, _dec34, _dec35, _dec36, _dec37, _dec38, _dec39, _dec40, _dec41, _dec42, _dec43, _dec44, _dec45, _dec46, _desc, _value, _class;
 
 var _Configuration = require("./utils/Configuration");
 
@@ -615,6 +693,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var configuration = _Configuration2.default.getInstance();
 var immigration = _Immigration2.default.getInstance();
 
@@ -638,13 +745,13 @@ var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = p
       throw new TypeError("not enabled");
     }
   }
-}), (_class = (function (_EventTarget) {
+}), (_class = function (_EventTarget) {
   _inherits(AudioContext, _EventTarget);
 
   function AudioContext() {
     _classCallCheck(this, AudioContext);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AudioContext).call(this));
+    var _this = _possibleConstructorReturn(this, (AudioContext.__proto__ || Object.getPrototypeOf(AudioContext)).call(this));
 
     Object.defineProperty(_this, "_", { value: {} });
 
@@ -805,8 +912,8 @@ var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = p
     value: function createScriptProcessor(bufferSize) {
       var _this11 = this;
 
-      var numberOfInputChannels = arguments.length <= 1 || arguments[1] === undefined ? 2 : arguments[1];
-      var numberOfOutputChannels = arguments.length <= 2 || arguments[2] === undefined ? 2 : arguments[2];
+      var numberOfInputChannels = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+      var numberOfOutputChannels = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2;
 
       return immigration.apply(function (admission) {
         return new _ScriptProcessorNode2.default(admission, _this11, bufferSize, numberOfInputChannels, numberOfOutputChannels);
@@ -835,7 +942,7 @@ var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = p
     value: function createDelay() {
       var _this14 = this;
 
-      var maxDelayTime = arguments.length <= 0 || arguments[0] === undefined ? 1 : arguments[0];
+      var maxDelayTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
       return immigration.apply(function (admission) {
         return new _DelayNode2.default(admission, _this14, maxDelayTime);
@@ -891,7 +998,7 @@ var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = p
     value: function createChannelSplitter() {
       var _this20 = this;
 
-      var numberOfOutputs = arguments.length <= 0 || arguments[0] === undefined ? 6 : arguments[0];
+      var numberOfOutputs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 6;
 
       return immigration.apply(function (admission) {
         return new _ChannelSplitterNode2.default(admission, _this20, numberOfOutputs);
@@ -902,7 +1009,7 @@ var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = p
     value: function createChannelMerger() {
       var _this21 = this;
 
-      var numberOfInputs = arguments.length <= 0 || arguments[0] === undefined ? 6 : arguments[0];
+      var numberOfInputs = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 6;
 
       return immigration.apply(function (admission) {
         return new _ChannelMergerNode2.default(admission, _this21, numberOfInputs);
@@ -1025,20 +1132,20 @@ var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = p
   }]);
 
   return AudioContext;
-})(_EventTarget3.default), (_desc = _dec(_class.prototype, "destination", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "destination")) || _desc, _desc ? Object.defineProperty(_class.prototype, "destination", _desc) : void 0, _desc = _dec2(_class.prototype, "sampleRate", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "sampleRate")) || _desc, _desc ? Object.defineProperty(_class.prototype, "sampleRate", _desc) : void 0, _desc = _dec3(_class.prototype, "currentTime", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "currentTime")) || _desc, _desc ? Object.defineProperty(_class.prototype, "currentTime", _desc) : void 0, _desc = _dec4(_class.prototype, "listener", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "listener")) || _desc, _desc ? Object.defineProperty(_class.prototype, "listener", _desc) : void 0, _desc = _dec5(_class.prototype, "onstatechange", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "onstatechange")) || _desc, _desc ? Object.defineProperty(_class.prototype, "onstatechange", _desc) : void 0, _desc = _dec6(_class.prototype, "suspend", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "suspend")) || _desc, _desc ? Object.defineProperty(_class.prototype, "suspend", _desc) : void 0, _desc = _dec7(_class.prototype, "resume", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "resume")) || _desc, _desc ? Object.defineProperty(_class.prototype, "resume", _desc) : void 0, _desc = _dec8(_class.prototype, "close", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "close")) || _desc, _desc ? Object.defineProperty(_class.prototype, "close", _desc) : void 0, _desc = _dec9(_class.prototype, "createBuffer", _desc = _dec10(_class.prototype, "createBuffer", _desc = _dec11(_class.prototype, "createBuffer", _desc = _dec12(_class.prototype, "createBuffer", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createBuffer")) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createBuffer", _desc) : void 0, _desc = _dec13(_class.prototype, "decodeAudioData", _desc = _dec14(_class.prototype, "decodeAudioData", _desc = _dec15(_class.prototype, "decodeAudioData", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "decodeAudioData")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "decodeAudioData", _desc) : void 0, _desc = _dec16(_class.prototype, "createBufferSource", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createBufferSource")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createBufferSource", _desc) : void 0, _desc = _dec17(_class.prototype, "createMediaElementSource", _desc = _dec18(_class.prototype, "createMediaElementSource", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createMediaElementSource")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createMediaElementSource", _desc) : void 0, _desc = _dec19(_class.prototype, "createMediaStreamSource", _desc = _dec20(_class.prototype, "createMediaStreamSource", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createMediaStreamSource")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createMediaStreamSource", _desc) : void 0, _desc = _dec21(_class.prototype, "createMediaStreamDestination", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createMediaStreamDestination")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createMediaStreamDestination", _desc) : void 0, _desc = _dec22(_class.prototype, "createAudioWorker", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createAudioWorker")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createAudioWorker", _desc) : void 0, _desc = _dec23(_class.prototype, "createScriptProcessor", _desc = _dec24(_class.prototype, "createScriptProcessor", _desc = _dec25(_class.prototype, "createScriptProcessor", _desc = _dec26(_class.prototype, "createScriptProcessor", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createScriptProcessor")) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createScriptProcessor", _desc) : void 0, _desc = _dec27(_class.prototype, "createAnalyser", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createAnalyser")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createAnalyser", _desc) : void 0, _desc = _dec28(_class.prototype, "createGain", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createGain")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createGain", _desc) : void 0, _desc = _dec29(_class.prototype, "createDelay", _desc = _dec30(_class.prototype, "createDelay", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createDelay")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createDelay", _desc) : void 0, _desc = _dec31(_class.prototype, "createBiquadFilter", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createBiquadFilter")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createBiquadFilter", _desc) : void 0, _desc = _dec32(_class.prototype, "createWaveShaper", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createWaveShaper")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createWaveShaper", _desc) : void 0, _desc = _dec33(_class.prototype, "createPanner", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createPanner")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createPanner", _desc) : void 0, _desc = _dec34(_class.prototype, "createStereoPanner", _desc = _dec35(_class.prototype, "createStereoPanner", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createStereoPanner")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createStereoPanner", _desc) : void 0, _desc = _dec36(_class.prototype, "createConvolver", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createConvolver")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createConvolver", _desc) : void 0, _desc = _dec37(_class.prototype, "createChannelSplitter", _desc = _dec38(_class.prototype, "createChannelSplitter", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createChannelSplitter")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createChannelSplitter", _desc) : void 0, _desc = _dec39(_class.prototype, "createChannelMerger", _desc = _dec40(_class.prototype, "createChannelMerger", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createChannelMerger")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createChannelMerger", _desc) : void 0, _desc = _dec41(_class.prototype, "createDynamicsCompressor", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createDynamicsCompressor")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createDynamicsCompressor", _desc) : void 0, _desc = _dec42(_class.prototype, "createOscillator", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createOscillator")) || _desc, _desc ? Object.defineProperty(_class.prototype, "createOscillator", _desc) : void 0, _desc = _dec43(_class.prototype, "createPeriodicWave", _desc = _dec44(_class.prototype, "createPeriodicWave", _desc = _dec45(_class.prototype, "createPeriodicWave", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "createPeriodicWave")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "createPeriodicWave", _desc) : void 0, _desc = _dec46(_class.prototype, "__transitionToState", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__transitionToState")) || _desc, _desc ? Object.defineProperty(_class.prototype, "__transitionToState", _desc) : void 0), _class));
+}(_EventTarget3.default), (_applyDecoratedDescriptor(_class.prototype, "destination", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "destination"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "sampleRate", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "sampleRate"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "currentTime", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "currentTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "listener", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "listener"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onstatechange", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "onstatechange"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "suspend", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "suspend"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "resume", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "resume"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "close", [_dec8], Object.getOwnPropertyDescriptor(_class.prototype, "close"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createBuffer", [_dec9, _dec10, _dec11, _dec12], Object.getOwnPropertyDescriptor(_class.prototype, "createBuffer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "decodeAudioData", [_dec13, _dec14, _dec15], Object.getOwnPropertyDescriptor(_class.prototype, "decodeAudioData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createBufferSource", [_dec16], Object.getOwnPropertyDescriptor(_class.prototype, "createBufferSource"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createMediaElementSource", [_dec17, _dec18], Object.getOwnPropertyDescriptor(_class.prototype, "createMediaElementSource"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createMediaStreamSource", [_dec19, _dec20], Object.getOwnPropertyDescriptor(_class.prototype, "createMediaStreamSource"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createMediaStreamDestination", [_dec21], Object.getOwnPropertyDescriptor(_class.prototype, "createMediaStreamDestination"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createAudioWorker", [_dec22], Object.getOwnPropertyDescriptor(_class.prototype, "createAudioWorker"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createScriptProcessor", [_dec23, _dec24, _dec25, _dec26], Object.getOwnPropertyDescriptor(_class.prototype, "createScriptProcessor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createAnalyser", [_dec27], Object.getOwnPropertyDescriptor(_class.prototype, "createAnalyser"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createGain", [_dec28], Object.getOwnPropertyDescriptor(_class.prototype, "createGain"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createDelay", [_dec29, _dec30], Object.getOwnPropertyDescriptor(_class.prototype, "createDelay"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createBiquadFilter", [_dec31], Object.getOwnPropertyDescriptor(_class.prototype, "createBiquadFilter"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createWaveShaper", [_dec32], Object.getOwnPropertyDescriptor(_class.prototype, "createWaveShaper"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createPanner", [_dec33], Object.getOwnPropertyDescriptor(_class.prototype, "createPanner"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createStereoPanner", [_dec34, _dec35], Object.getOwnPropertyDescriptor(_class.prototype, "createStereoPanner"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createConvolver", [_dec36], Object.getOwnPropertyDescriptor(_class.prototype, "createConvolver"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createChannelSplitter", [_dec37, _dec38], Object.getOwnPropertyDescriptor(_class.prototype, "createChannelSplitter"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createChannelMerger", [_dec39, _dec40], Object.getOwnPropertyDescriptor(_class.prototype, "createChannelMerger"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createDynamicsCompressor", [_dec41], Object.getOwnPropertyDescriptor(_class.prototype, "createDynamicsCompressor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createOscillator", [_dec42], Object.getOwnPropertyDescriptor(_class.prototype, "createOscillator"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createPeriodicWave", [_dec43, _dec44, _dec45], Object.getOwnPropertyDescriptor(_class.prototype, "createPeriodicWave"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__transitionToState", [_dec46], Object.getOwnPropertyDescriptor(_class.prototype, "__transitionToState"), _class.prototype)), _class));
 exports.default = AudioContext;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./AnalyserNode":2,"./AudioBuffer":3,"./AudioBufferSourceNode":4,"./AudioDestinationNode":6,"./AudioListener":7,"./BiquadFilterNode":11,"./ChannelMergerNode":12,"./ChannelSplitterNode":13,"./ConvolverNode":14,"./DelayNode":15,"./DynamicsCompressorNode":16,"./GainNode":17,"./MediaElementAudioSourceNode":18,"./MediaStreamAudioDestinationNode":19,"./MediaStreamAudioSourceNode":20,"./OscillatorNode":23,"./PannerNode":24,"./PeriodicWave":25,"./ScriptProcessorNode":26,"./StereoPannerNode":27,"./WaveShaperNode":28,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./dom/EventTarget":36,"./dom/HTMLMediaElement":38,"./dom/MediaStream":39,"./utils/Configuration":41,"./utils/Immigration":42,"./utils/defaults":46,"./utils/getAPIVersion":48,"./utils/toMicroseconds":52,"./validators":56}],6:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -1058,13 +1165,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var AudioDestinationNode = (_dec = props.readonly(2), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var AudioDestinationNode = (_dec = props.readonly(2), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(AudioDestinationNode, _AudioNode);
 
   function AudioDestinationNode(admission, context) {
     _classCallCheck(this, AudioDestinationNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(AudioDestinationNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (AudioDestinationNode.__proto__ || Object.getPrototypeOf(AudioDestinationNode)).call(this, admission, {
       name: "AudioDestinationNode",
       context: context,
       numberOfInputs: 1,
@@ -1081,19 +1217,19 @@ var AudioDestinationNode = (_dec = props.readonly(2), (_class = (_temp = _class2
   }]);
 
   return AudioDestinationNode;
-})(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_desc = _dec(_class.prototype, "maxChannelCount", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "maxChannelCount")) || _desc, _desc ? Object.defineProperty(_class.prototype, "maxChannelCount", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "maxChannelCount", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "maxChannelCount"), _class.prototype)), _class));
 exports.default = AudioDestinationNode;
 },{"./AudioNode":8,"./decorators/props":33}],7:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _desc, _value, _class;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _desc, _value, _class;
 
 var _Immigration = require("./utils/Immigration");
 
@@ -1117,9 +1253,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var immigration = _Immigration2.default.getInstance();
 
-var AudioListener = (_dec = props.typed(validators.isNumber, 1), _dec2 = props.typed(validators.isNumber, 343.3), _dec3 = methods.param("x", validators.isNumber), _dec4 = methods.param("y", validators.isNumber), _dec5 = methods.param("z", validators.isNumber), _dec6 = methods.param("x", validators.isNumber), _dec7 = methods.param("y", validators.isNumber), _dec8 = methods.param("z", validators.isNumber), _dec9 = methods.param("xUp", validators.isNumber), _dec10 = methods.param("yUp", validators.isNumber), _dec11 = methods.param("zUp", validators.isNumber), _dec12 = methods.param("x", validators.isNumber), _dec13 = methods.param("y", validators.isNumber), _dec14 = methods.param("z", validators.isNumber), (_class = (function () {
+var AudioListener = (_dec = props.typed(validators.isNumber, 1), _dec2 = props.typed(validators.isNumber, 343.3), _dec3 = methods.param("x", validators.isNumber), _dec4 = methods.param("y", validators.isNumber), _dec5 = methods.param("z", validators.isNumber), _dec6 = methods.param("x", validators.isNumber), _dec7 = methods.param("y", validators.isNumber), _dec8 = methods.param("z", validators.isNumber), _dec9 = methods.param("xUp", validators.isNumber), _dec10 = methods.param("yUp", validators.isNumber), _dec11 = methods.param("zUp", validators.isNumber), _dec12 = methods.param("x", validators.isNumber), _dec13 = methods.param("y", validators.isNumber), _dec14 = methods.param("z", validators.isNumber), (_class = function () {
   function AudioListener(admission, context) {
     _classCallCheck(this, AudioListener);
 
@@ -1159,20 +1324,20 @@ var AudioListener = (_dec = props.typed(validators.isNumber, 1), _dec2 = props.t
   }]);
 
   return AudioListener;
-})(), (_desc = _dec(_class.prototype, "dopplerFactor", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "dopplerFactor")) || _desc, _desc ? Object.defineProperty(_class.prototype, "dopplerFactor", _desc) : void 0, _desc = _dec2(_class.prototype, "speedOfSound", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "speedOfSound")) || _desc, _desc ? Object.defineProperty(_class.prototype, "speedOfSound", _desc) : void 0, _desc = _dec3(_class.prototype, "setPosition", _desc = _dec4(_class.prototype, "setPosition", _desc = _dec5(_class.prototype, "setPosition", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setPosition")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setPosition", _desc) : void 0, _desc = _dec6(_class.prototype, "setOrientation", _desc = _dec7(_class.prototype, "setOrientation", _desc = _dec8(_class.prototype, "setOrientation", _desc = _dec9(_class.prototype, "setOrientation", _desc = _dec10(_class.prototype, "setOrientation", _desc = _dec11(_class.prototype, "setOrientation", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setOrientation")) || _desc) || _desc) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setOrientation", _desc) : void 0, _desc = _dec12(_class.prototype, "setVelocity", _desc = _dec13(_class.prototype, "setVelocity", _desc = _dec14(_class.prototype, "setVelocity", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setVelocity")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setVelocity", _desc) : void 0), _class));
+}(), (_applyDecoratedDescriptor(_class.prototype, "dopplerFactor", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "dopplerFactor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "speedOfSound", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "speedOfSound"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setPosition", [_dec3, _dec4, _dec5], Object.getOwnPropertyDescriptor(_class.prototype, "setPosition"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setOrientation", [_dec6, _dec7, _dec8, _dec9, _dec10, _dec11], Object.getOwnPropertyDescriptor(_class.prototype, "setOrientation"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setVelocity", [_dec12, _dec13, _dec14], Object.getOwnPropertyDescriptor(_class.prototype, "setVelocity"), _class.prototype)), _class));
 exports.default = AudioListener;
 },{"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":42,"./validators":56}],8:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _desc, _value, _class, _class2, _temp;
 
 var _Configuration = require("./utils/Configuration");
 
@@ -1224,6 +1389,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var configuration = _Configuration2.default.getInstance();
 var immigration = _Immigration2.default.getInstance();
 
@@ -1235,8 +1429,8 @@ var AudioNode = (_dec = methods.contract({
   }
 }), _dec2 = props.readonly(), _dec3 = props.readonly(), _dec4 = props.readonly(), _dec5 = props.typed(validators.isPositiveInteger, 2), _dec6 = props.enums(["max", "clamped-max", "explicit"]), _dec7 = props.enums(["speakers", "discrete"]), _dec8 = methods.param("destination", validators.isAudioSource), _dec9 = methods.param("[ output ]", validators.isPositiveInteger), _dec10 = methods.param("[ input ]", validators.isPositiveInteger), _dec11 = methods.contract({
   precondition: function precondition(destination) {
-    var output = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
-    var input = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+    var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var input = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
     if (this.$context !== destination.$context) {
       throw new TypeError("Cannot connect to a destination belonging to a different AudioContext.");
@@ -1287,7 +1481,7 @@ var AudioNode = (_dec = methods.contract({
       throw new TypeError("The {{input}} provided (" + input + ") is outside the range [0, " + this.numberOfInputs + ").");
     }
   }
-}), (_class = (_temp = _class2 = (function (_EventTarget) {
+}), (_class = (_temp = _class2 = function (_EventTarget) {
   _inherits(AudioNode, _EventTarget);
 
   function AudioNode(admission, spec) {
@@ -1297,7 +1491,7 @@ var AudioNode = (_dec = methods.contract({
       throw new TypeError("Illegal constructor");
     });
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AudioNode).call(this));
+    var _this = _possibleConstructorReturn(this, (AudioNode.__proto__ || Object.getPrototypeOf(AudioNode)).call(this));
 
     Object.defineProperty(_this, "_", { value: {} });
 
@@ -1352,8 +1546,8 @@ var AudioNode = (_dec = methods.contract({
   }, {
     key: "connect",
     value: function connect(destination) {
-      var output = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
-      var input = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+      var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var input = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
       this._.outputs[output].connect(destination.$inputs[input]);
     }
@@ -1470,8 +1664,8 @@ var AudioNode = (_dec = methods.contract({
   }, {
     key: "$isConnectedTo",
     value: function $isConnectedTo(destination) {
-      var output = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
-      var input = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+      var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var input = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
       if (!(destination instanceof global.AudioNode) && !(destination instanceof global.AudioParam)) {
         return false;
@@ -1491,8 +1685,8 @@ var AudioNode = (_dec = methods.contract({
   }, {
     key: "$isConnectedFrom",
     value: function $isConnectedFrom(destination) {
-      var output = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
-      var input = arguments.length <= 2 || arguments[2] === undefined ? 0 : arguments[2];
+      var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var input = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
       if (!(destination instanceof global.AudioNode)) {
         return false;
@@ -1531,21 +1725,21 @@ var AudioNode = (_dec = methods.contract({
   }]);
 
   return AudioNode;
-})(_EventTarget3.default), _class2.$JSONKeys = [], _temp), (_desc = _dec(_class.prototype, "__createAudioNode", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createAudioNode")) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createAudioNode", _desc) : void 0, _desc = _dec2(_class.prototype, "context", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "context")) || _desc, _desc ? Object.defineProperty(_class.prototype, "context", _desc) : void 0, _desc = _dec3(_class.prototype, "numberOfInputs", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "numberOfInputs")) || _desc, _desc ? Object.defineProperty(_class.prototype, "numberOfInputs", _desc) : void 0, _desc = _dec4(_class.prototype, "numberOfOutputs", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "numberOfOutputs")) || _desc, _desc ? Object.defineProperty(_class.prototype, "numberOfOutputs", _desc) : void 0, _desc = _dec5(_class.prototype, "channelCount", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "channelCount")) || _desc, _desc ? Object.defineProperty(_class.prototype, "channelCount", _desc) : void 0, _desc = _dec6(_class.prototype, "channelCountMode", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "channelCountMode")) || _desc, _desc ? Object.defineProperty(_class.prototype, "channelCountMode", _desc) : void 0, _desc = _dec7(_class.prototype, "channelInterpretation", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "channelInterpretation")) || _desc, _desc ? Object.defineProperty(_class.prototype, "channelInterpretation", _desc) : void 0, _desc = _dec8(_class.prototype, "connect", _desc = _dec9(_class.prototype, "connect", _desc = _dec10(_class.prototype, "connect", _desc = _dec11(_class.prototype, "connect", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "connect")) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "connect", _desc) : void 0, _desc = _dec12(_class.prototype, "__disconnect$$Channel", _desc = _dec13(_class.prototype, "__disconnect$$Channel", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Channel")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "__disconnect$$Channel", _desc) : void 0, _desc = _dec14(_class.prototype, "__disconnect$$Selective1", _desc = _dec15(_class.prototype, "__disconnect$$Selective1", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective1")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "__disconnect$$Selective1", _desc) : void 0, _desc = _dec16(_class.prototype, "__disconnect$$Selective2", _desc = _dec17(_class.prototype, "__disconnect$$Selective2", _desc = _dec18(_class.prototype, "__disconnect$$Selective2", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective2")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "__disconnect$$Selective2", _desc) : void 0, _desc = _dec19(_class.prototype, "__disconnect$$Selective3", _desc = _dec20(_class.prototype, "__disconnect$$Selective3", _desc = _dec21(_class.prototype, "__disconnect$$Selective3", _desc = _dec22(_class.prototype, "__disconnect$$Selective3", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective3")) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "__disconnect$$Selective3", _desc) : void 0), _class));
+}(_EventTarget3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createAudioNode", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createAudioNode"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "context", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "context"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "numberOfInputs", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "numberOfInputs"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "numberOfOutputs", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "numberOfOutputs"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "channelCount", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "channelCount"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "channelCountMode", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "channelCountMode"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "channelInterpretation", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "channelInterpretation"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "connect", [_dec8, _dec9, _dec10, _dec11], Object.getOwnPropertyDescriptor(_class.prototype, "connect"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__disconnect$$Channel", [_dec12, _dec13], Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Channel"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__disconnect$$Selective1", [_dec14, _dec15], Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective1"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__disconnect$$Selective2", [_dec16, _dec17, _dec18], Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective2"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__disconnect$$Selective3", [_dec19, _dec20, _dec21, _dec22], Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective3"), _class.prototype)), _class));
 exports.default = AudioNode;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./decorators/methods":32,"./decorators/props":33,"./dom/EventTarget":36,"./utils/Configuration":41,"./utils/Immigration":42,"./utils/Junction":43,"./utils/defaults":46,"./utils/toJSON":51,"./utils/toNodeName":53,"./validators":56}],9:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _desc, _value, _class;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _desc, _value, _class;
 
 var _Immigration = require("./utils/Immigration");
 
@@ -1585,9 +1779,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var immigration = _Immigration2.default.getInstance();
 
-var AudioParam = (_dec = props.typed(validators.isNumber, 0), _dec2 = props.readonly(), _dec3 = props.readonly(), _dec4 = methods.param("value", validators.isNumber), _dec5 = methods.param("startTime", validators.isNumber), _dec6 = methods.param("value", validators.isNumber), _dec7 = methods.param("endTime", validators.isNumber), _dec8 = methods.param("value", validators.isNumber), _dec9 = methods.param("endTime", validators.isNumber), _dec10 = methods.param("value", validators.isNumber), _dec11 = methods.param("endTime", validators.isNumber), _dec12 = methods.param("timeConstant", validators.isNumber), _dec13 = methods.param("values", validators.isInstanceOf(Float32Array)), _dec14 = methods.param("startTime", validators.isNumber), _dec15 = methods.param("duration", validators.isNumber), _dec16 = methods.param("startTime", validators.isNumber), (_class = (function () {
+var AudioParam = (_dec = props.typed(validators.isNumber, 0), _dec2 = props.readonly(), _dec3 = props.readonly(), _dec4 = methods.param("value", validators.isNumber), _dec5 = methods.param("startTime", validators.isNumber), _dec6 = methods.param("value", validators.isNumber), _dec7 = methods.param("endTime", validators.isNumber), _dec8 = methods.param("value", validators.isNumber), _dec9 = methods.param("endTime", validators.isNumber), _dec10 = methods.param("value", validators.isNumber), _dec11 = methods.param("endTime", validators.isNumber), _dec12 = methods.param("timeConstant", validators.isNumber), _dec13 = methods.param("values", validators.isInstanceOf(Float32Array)), _dec14 = methods.param("startTime", validators.isNumber), _dec15 = methods.param("duration", validators.isNumber), _dec16 = methods.param("startTime", validators.isNumber), (_class = function () {
   function AudioParam(admission, node, name, defaultValue) {
     _classCallCheck(this, AudioParam);
 
@@ -1670,7 +1893,7 @@ var AudioParam = (_dec = props.typed(validators.isNumber, 0), _dec2 = props.read
       var time = (0, _toSeconds2.default)(when);
       var value = this._.value;
       var events = this.$events;
-      var t0 = undefined;
+      var t0 = void 0;
 
       for (var i = 0; i < events.length; i++) {
         var e0 = events[i];
@@ -1717,7 +1940,7 @@ var AudioParam = (_dec = props.typed(validators.isNumber, 0), _dec2 = props.read
   }, {
     key: "$isConnectedFrom",
     value: function $isConnectedFrom(destination) {
-      var output = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
+      var output = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
       if (!(destination instanceof global.AudioNode)) {
         return false;
@@ -1740,7 +1963,7 @@ var AudioParam = (_dec = props.typed(validators.isNumber, 0), _dec2 = props.read
       var time = event.time;
       var events = this.$events;
       var replace = 0;
-      var i = undefined,
+      var i = void 0,
           imax = events.length;
 
       for (i = 0; i < imax; ++i) {
@@ -1847,18 +2070,18 @@ var AudioParam = (_dec = props.typed(validators.isNumber, 0), _dec2 = props.read
   }]);
 
   return AudioParam;
-})(), (_desc = _dec(_class.prototype, "value", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "value")) || _desc, _desc ? Object.defineProperty(_class.prototype, "value", _desc) : void 0, _desc = _dec2(_class.prototype, "name", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "name")) || _desc, _desc ? Object.defineProperty(_class.prototype, "name", _desc) : void 0, _desc = _dec3(_class.prototype, "defaultValue", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "defaultValue")) || _desc, _desc ? Object.defineProperty(_class.prototype, "defaultValue", _desc) : void 0, _desc = _dec4(_class.prototype, "setValueAtTime", _desc = _dec5(_class.prototype, "setValueAtTime", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setValueAtTime")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setValueAtTime", _desc) : void 0, _desc = _dec6(_class.prototype, "linearRampToValueAtTime", _desc = _dec7(_class.prototype, "linearRampToValueAtTime", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "linearRampToValueAtTime")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "linearRampToValueAtTime", _desc) : void 0, _desc = _dec8(_class.prototype, "exponentialRampToValueAtTime", _desc = _dec9(_class.prototype, "exponentialRampToValueAtTime", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "exponentialRampToValueAtTime")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "exponentialRampToValueAtTime", _desc) : void 0, _desc = _dec10(_class.prototype, "setTargetAtTime", _desc = _dec11(_class.prototype, "setTargetAtTime", _desc = _dec12(_class.prototype, "setTargetAtTime", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setTargetAtTime")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setTargetAtTime", _desc) : void 0, _desc = _dec13(_class.prototype, "setValueCurveAtTime", _desc = _dec14(_class.prototype, "setValueCurveAtTime", _desc = _dec15(_class.prototype, "setValueCurveAtTime", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setValueCurveAtTime")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setValueCurveAtTime", _desc) : void 0, _desc = _dec16(_class.prototype, "cancelScheduledValues", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "cancelScheduledValues")) || _desc, _desc ? Object.defineProperty(_class.prototype, "cancelScheduledValues", _desc) : void 0), _class));
+}(), (_applyDecoratedDescriptor(_class.prototype, "value", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "value"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "name", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "name"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "defaultValue", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "defaultValue"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setValueAtTime", [_dec4, _dec5], Object.getOwnPropertyDescriptor(_class.prototype, "setValueAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "linearRampToValueAtTime", [_dec6, _dec7], Object.getOwnPropertyDescriptor(_class.prototype, "linearRampToValueAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "exponentialRampToValueAtTime", [_dec8, _dec9], Object.getOwnPropertyDescriptor(_class.prototype, "exponentialRampToValueAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setTargetAtTime", [_dec10, _dec11, _dec12], Object.getOwnPropertyDescriptor(_class.prototype, "setTargetAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setValueCurveAtTime", [_dec13, _dec14, _dec15], Object.getOwnPropertyDescriptor(_class.prototype, "setValueCurveAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "cancelScheduledValues", [_dec16], Object.getOwnPropertyDescriptor(_class.prototype, "cancelScheduledValues"), _class.prototype)), _class));
 exports.default = AudioParam;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":42,"./utils/Junction":43,"./utils/defaults":46,"./utils/toJSON":51,"./utils/toSeconds":55,"./validators":56}],10:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _Immigration = require("./utils/Immigration");
 
@@ -1878,7 +2101,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var immigration = _Immigration2.default.getInstance();
 
-var AudioProcessingEvent = (function (_Event) {
+var AudioProcessingEvent = function (_Event) {
   _inherits(AudioProcessingEvent, _Event);
 
   function AudioProcessingEvent(admission, node) {
@@ -1888,7 +2111,7 @@ var AudioProcessingEvent = (function (_Event) {
       throw new TypeError("Illegal constructor");
     });
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AudioProcessingEvent).call(this, "audioprocess", node));
+    var _this = _possibleConstructorReturn(this, (AudioProcessingEvent.__proto__ || Object.getPrototypeOf(AudioProcessingEvent)).call(this, "audioprocess", node));
 
     _this._.node = node;
     return _this;
@@ -1907,20 +2130,20 @@ var AudioProcessingEvent = (function (_Event) {
   }]);
 
   return AudioProcessingEvent;
-})(_Event3.default);
+}(_Event3.default);
 
 exports.default = AudioProcessingEvent;
 },{"./dom/Event":35,"./utils/Immigration":42}],11:[function(require,module,exports){
 "use strict";
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _desc, _value, _class, _class2, _temp;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -1948,13 +2171,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var BiquadFilterNode = (_dec = props.enums(["lowpass", "highpass", "bandpass", "lowshelf", "highshelf", "peaking", "notch", "allpass"]), _dec2 = props.audioparam(350), _dec3 = props.audioparam(0), _dec4 = props.audioparam(1), _dec5 = props.audioparam(0), _dec6 = methods.param("frequencyHz", validators.isInstanceOf(Float32Array)), _dec7 = methods.param("magResponse", validators.isInstanceOf(Float32Array)), _dec8 = methods.param("phaseResponse", validators.isInstanceOf(Float32Array)), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var BiquadFilterNode = (_dec = props.enums(["lowpass", "highpass", "bandpass", "lowshelf", "highshelf", "peaking", "notch", "allpass"]), _dec2 = props.audioparam(350), _dec3 = props.audioparam(0), _dec4 = props.audioparam(1), _dec5 = props.audioparam(0), _dec6 = methods.param("frequencyHz", validators.isInstanceOf(Float32Array)), _dec7 = methods.param("magResponse", validators.isInstanceOf(Float32Array)), _dec8 = methods.param("phaseResponse", validators.isInstanceOf(Float32Array)), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(BiquadFilterNode, _AudioNode);
 
   function BiquadFilterNode(admission, context) {
     _classCallCheck(this, BiquadFilterNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(BiquadFilterNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (BiquadFilterNode.__proto__ || Object.getPrototypeOf(BiquadFilterNode)).call(this, admission, {
       name: "BiquadFilterNode",
       context: context,
       numberOfInputs: 1,
@@ -1986,19 +2238,19 @@ var BiquadFilterNode = (_dec = props.enums(["lowpass", "highpass", "bandpass", "
   }]);
 
   return BiquadFilterNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["type", "frequency", "detune", "Q", "gain"], _temp), (_desc = _dec(_class.prototype, "type", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "type")) || _desc, _desc ? Object.defineProperty(_class.prototype, "type", _desc) : void 0, _desc = _dec2(_class.prototype, "frequency", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "frequency")) || _desc, _desc ? Object.defineProperty(_class.prototype, "frequency", _desc) : void 0, _desc = _dec3(_class.prototype, "detune", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "detune")) || _desc, _desc ? Object.defineProperty(_class.prototype, "detune", _desc) : void 0, _desc = _dec4(_class.prototype, "Q", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "Q")) || _desc, _desc ? Object.defineProperty(_class.prototype, "Q", _desc) : void 0, _desc = _dec5(_class.prototype, "gain", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "gain")) || _desc, _desc ? Object.defineProperty(_class.prototype, "gain", _desc) : void 0, _desc = _dec6(_class.prototype, "getFrequencyResponse", _desc = _dec7(_class.prototype, "getFrequencyResponse", _desc = _dec8(_class.prototype, "getFrequencyResponse", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "getFrequencyResponse")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "getFrequencyResponse", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["type", "frequency", "detune", "Q", "gain"], _temp), (_applyDecoratedDescriptor(_class.prototype, "type", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "type"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "frequency", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "frequency"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "detune", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "detune"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "Q", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "Q"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "gain", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "gain"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getFrequencyResponse", [_dec6, _dec7, _dec8], Object.getOwnPropertyDescriptor(_class.prototype, "getFrequencyResponse"), _class.prototype)), _class));
 exports.default = BiquadFilterNode;
 },{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":56}],12:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2022,13 +2274,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ChannelMergerNode = (_dec = methods.param("numberOfInputs", validators.isPositiveInteger), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var ChannelMergerNode = (_dec = methods.param("numberOfInputs", validators.isPositiveInteger), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(ChannelMergerNode, _AudioNode);
 
   function ChannelMergerNode(admission, context, numberOfInputs) {
     _classCallCheck(this, ChannelMergerNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ChannelMergerNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (ChannelMergerNode.__proto__ || Object.getPrototypeOf(ChannelMergerNode)).call(this, admission, {
       name: "ChannelMergerNode",
       context: context,
       numberOfInputs: numberOfInputs,
@@ -2048,19 +2329,19 @@ var ChannelMergerNode = (_dec = methods.param("numberOfInputs", validators.isPos
   }]);
 
   return ChannelMergerNode;
-})(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_desc = _dec(_class.prototype, "__createChannelMerger", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createChannelMerger")) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createChannelMerger", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createChannelMerger", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createChannelMerger"), _class.prototype)), _class));
 exports.default = ChannelMergerNode;
 },{"./AudioNode":8,"./decorators/methods":32,"./validators":56}],13:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2084,13 +2365,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ChannelSplitterNode = (_dec = methods.param("numberOfOutputs", validators.isPositiveInteger), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var ChannelSplitterNode = (_dec = methods.param("numberOfOutputs", validators.isPositiveInteger), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(ChannelSplitterNode, _AudioNode);
 
   function ChannelSplitterNode(admission, context, numberOfOutputs) {
     _classCallCheck(this, ChannelSplitterNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ChannelSplitterNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (ChannelSplitterNode.__proto__ || Object.getPrototypeOf(ChannelSplitterNode)).call(this, admission, {
       name: "ChannelSplitterNode",
       context: context,
       numberOfInputs: 1,
@@ -2110,19 +2420,19 @@ var ChannelSplitterNode = (_dec = methods.param("numberOfOutputs", validators.is
   }]);
 
   return ChannelSplitterNode;
-})(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_desc = _dec(_class.prototype, "__createChannelSplitter", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createChannelSplitter")) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createChannelSplitter", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createChannelSplitter", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createChannelSplitter"), _class.prototype)), _class));
 exports.default = ChannelSplitterNode;
 },{"./AudioNode":8,"./decorators/methods":32,"./validators":56}],14:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2150,13 +2460,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ConvolverNode = (_dec = props.typed(validators.isNullOrInstanceOf(_AudioBuffer2.default), null), _dec2 = props.typed(validators.isBoolean, true), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var ConvolverNode = (_dec = props.typed(validators.isNullOrInstanceOf(_AudioBuffer2.default), null), _dec2 = props.typed(validators.isBoolean, true), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(ConvolverNode, _AudioNode);
 
   function ConvolverNode(admission, context) {
     _classCallCheck(this, ConvolverNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ConvolverNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (ConvolverNode.__proto__ || Object.getPrototypeOf(ConvolverNode)).call(this, admission, {
       name: "ConvolverNode",
       context: context,
       numberOfInputs: 1,
@@ -2176,19 +2515,19 @@ var ConvolverNode = (_dec = props.typed(validators.isNullOrInstanceOf(_AudioBuff
   }]);
 
   return ConvolverNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["normalize"], _temp), (_desc = _dec(_class.prototype, "buffer", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "buffer")) || _desc, _desc ? Object.defineProperty(_class.prototype, "buffer", _desc) : void 0, _desc = _dec2(_class.prototype, "normalize", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "normalize")) || _desc, _desc ? Object.defineProperty(_class.prototype, "normalize", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["normalize"], _temp), (_applyDecoratedDescriptor(_class.prototype, "buffer", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "buffer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "normalize", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "normalize"), _class.prototype)), _class));
 exports.default = ConvolverNode;
 },{"./AudioBuffer":3,"./AudioNode":8,"./decorators/props":33,"./validators":56}],15:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2216,13 +2555,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DelayNode = (_dec = methods.param("maxDelayTime", validators.isPositiveNumber), _dec2 = props.audioparam(0), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var DelayNode = (_dec = methods.param("maxDelayTime", validators.isPositiveNumber), _dec2 = props.audioparam(0), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(DelayNode, _AudioNode);
 
   function DelayNode(admission, context, maxDelayTime) {
     _classCallCheck(this, DelayNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(DelayNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (DelayNode.__proto__ || Object.getPrototypeOf(DelayNode)).call(this, admission, {
       name: "DelayNode",
       context: context,
       numberOfInputs: 1,
@@ -2252,19 +2620,19 @@ var DelayNode = (_dec = methods.param("maxDelayTime", validators.isPositiveNumbe
   }]);
 
   return DelayNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["delayTime"], _temp), (_desc = _dec(_class.prototype, "__createDelay", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createDelay")) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createDelay", _desc) : void 0, _desc = _dec2(_class.prototype, "delayTime", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "delayTime")) || _desc, _desc ? Object.defineProperty(_class.prototype, "delayTime", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["delayTime"], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createDelay", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createDelay"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "delayTime", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "delayTime"), _class.prototype)), _class));
 exports.default = DelayNode;
 },{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":56}],16:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2284,13 +2652,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DynamicsCompressorNode = (_dec = props.audioparam(-24), _dec2 = props.audioparam(30), _dec3 = props.audioparam(12), _dec4 = props.audioparam(0), _dec5 = props.audioparam(0.003), _dec6 = props.audioparam(0.25), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var DynamicsCompressorNode = (_dec = props.audioparam(-24), _dec2 = props.audioparam(30), _dec3 = props.audioparam(12), _dec4 = props.audioparam(0), _dec5 = props.audioparam(0.003), _dec6 = props.audioparam(0.25), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(DynamicsCompressorNode, _AudioNode);
 
   function DynamicsCompressorNode(admission, context) {
     _classCallCheck(this, DynamicsCompressorNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(DynamicsCompressorNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (DynamicsCompressorNode.__proto__ || Object.getPrototypeOf(DynamicsCompressorNode)).call(this, admission, {
       name: "DynamicsCompressorNode",
       context: context,
       numberOfInputs: 1,
@@ -2322,19 +2719,19 @@ var DynamicsCompressorNode = (_dec = props.audioparam(-24), _dec2 = props.audiop
   }]);
 
   return DynamicsCompressorNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["threshold", "knee", "ratio", "reduction", "attack", "release"], _temp), (_desc = _dec(_class.prototype, "threshold", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "threshold")) || _desc, _desc ? Object.defineProperty(_class.prototype, "threshold", _desc) : void 0, _desc = _dec2(_class.prototype, "knee", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "knee")) || _desc, _desc ? Object.defineProperty(_class.prototype, "knee", _desc) : void 0, _desc = _dec3(_class.prototype, "ratio", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "ratio")) || _desc, _desc ? Object.defineProperty(_class.prototype, "ratio", _desc) : void 0, _desc = _dec4(_class.prototype, "reduction", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "reduction")) || _desc, _desc ? Object.defineProperty(_class.prototype, "reduction", _desc) : void 0, _desc = _dec5(_class.prototype, "attack", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "attack")) || _desc, _desc ? Object.defineProperty(_class.prototype, "attack", _desc) : void 0, _desc = _dec6(_class.prototype, "release", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "release")) || _desc, _desc ? Object.defineProperty(_class.prototype, "release", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["threshold", "knee", "ratio", "reduction", "attack", "release"], _temp), (_applyDecoratedDescriptor(_class.prototype, "threshold", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "threshold"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "knee", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "knee"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "ratio", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "ratio"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "reduction", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "reduction"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "attack", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "attack"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "release", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "release"), _class.prototype)), _class));
 exports.default = DynamicsCompressorNode;
 },{"./AudioNode":8,"./decorators/props":33}],17:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2354,13 +2751,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var GainNode = (_dec = props.audioparam(1), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var GainNode = (_dec = props.audioparam(1), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(GainNode, _AudioNode);
 
   function GainNode(admission, context) {
     _classCallCheck(this, GainNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(GainNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (GainNode.__proto__ || Object.getPrototypeOf(GainNode)).call(this, admission, {
       name: "GainNode",
       context: context,
       numberOfInputs: 1,
@@ -2377,19 +2803,19 @@ var GainNode = (_dec = props.audioparam(1), (_class = (_temp = _class2 = (functi
   }]);
 
   return GainNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["gain"], _temp), (_desc = _dec(_class.prototype, "gain", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "gain")) || _desc, _desc ? Object.defineProperty(_class.prototype, "gain", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["gain"], _temp), (_applyDecoratedDescriptor(_class.prototype, "gain", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "gain"), _class.prototype)), _class));
 exports.default = GainNode;
 },{"./AudioNode":8,"./decorators/props":33}],18:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2417,13 +2843,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MediaElementAudioSourceNode = (_dec = methods.param("mediaElement", validators.isInstanceOf(_HTMLMediaElement2.default)), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var MediaElementAudioSourceNode = (_dec = methods.param("mediaElement", validators.isInstanceOf(_HTMLMediaElement2.default)), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(MediaElementAudioSourceNode, _AudioNode);
 
   function MediaElementAudioSourceNode(admission, context, mediaElement) {
     _classCallCheck(this, MediaElementAudioSourceNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MediaElementAudioSourceNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (MediaElementAudioSourceNode.__proto__ || Object.getPrototypeOf(MediaElementAudioSourceNode)).call(this, admission, {
       name: "MediaElementAudioSourceNode",
       context: context,
       numberOfInputs: 0,
@@ -2443,17 +2898,17 @@ var MediaElementAudioSourceNode = (_dec = methods.param("mediaElement", validato
   }]);
 
   return MediaElementAudioSourceNode;
-})(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_desc = _dec(_class.prototype, "__createMediaElementSource", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createMediaElementSource")) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createMediaElementSource", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createMediaElementSource", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createMediaElementSource"), _class.prototype)), _class));
 exports.default = MediaElementAudioSourceNode;
 },{"./AudioNode":8,"./decorators/methods":32,"./dom/HTMLMediaElement":38,"./validators":56}],19:[function(require,module,exports){
 "use strict";
-
-var _class, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _class, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2467,13 +2922,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MediaStreamAudioDestinationNode = (_temp = _class = (function (_AudioNode) {
+var MediaStreamAudioDestinationNode = (_temp = _class = function (_AudioNode) {
   _inherits(MediaStreamAudioDestinationNode, _AudioNode);
 
   function MediaStreamAudioDestinationNode(admission, context) {
     _classCallCheck(this, MediaStreamAudioDestinationNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(MediaStreamAudioDestinationNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (MediaStreamAudioDestinationNode.__proto__ || Object.getPrototypeOf(MediaStreamAudioDestinationNode)).call(this, admission, {
       name: "MediaStreamAudioDestinationNode",
       context: context,
       numberOfInputs: 1,
@@ -2485,19 +2940,19 @@ var MediaStreamAudioDestinationNode = (_temp = _class = (function (_AudioNode) {
   }
 
   return MediaStreamAudioDestinationNode;
-})(_AudioNode3.default), _class.$JSONKeys = [], _temp);
+}(_AudioNode3.default), _class.$JSONKeys = [], _temp);
 exports.default = MediaStreamAudioDestinationNode;
 },{"./AudioNode":8}],20:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2525,13 +2980,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MediaStreamAudioSourceNode = (_dec = methods.param("mediaStream", validators.isInstanceOf(_MediaStream2.default)), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var MediaStreamAudioSourceNode = (_dec = methods.param("mediaStream", validators.isInstanceOf(_MediaStream2.default)), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(MediaStreamAudioSourceNode, _AudioNode);
 
   function MediaStreamAudioSourceNode(admission, context, mediaStream) {
     _classCallCheck(this, MediaStreamAudioSourceNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MediaStreamAudioSourceNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (MediaStreamAudioSourceNode.__proto__ || Object.getPrototypeOf(MediaStreamAudioSourceNode)).call(this, admission, {
       name: "MediaStreamAudioSourceNode",
       context: context,
       numberOfInputs: 0,
@@ -2551,17 +3035,17 @@ var MediaStreamAudioSourceNode = (_dec = methods.param("mediaStream", validators
   }]);
 
   return MediaStreamAudioSourceNode;
-})(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_desc = _dec(_class.prototype, "__createMediaStreamSource", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createMediaStreamSource")) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createMediaStreamSource", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createMediaStreamSource", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createMediaStreamSource"), _class.prototype)), _class));
 exports.default = MediaStreamAudioSourceNode;
 },{"./AudioNode":8,"./decorators/methods":32,"./dom/MediaStream":39,"./validators":56}],21:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _Immigration = require("./utils/Immigration");
 
@@ -2581,7 +3065,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var immigration = _Immigration2.default.getInstance();
 
-var OfflineAudioCompletionEvent = (function (_Event) {
+var OfflineAudioCompletionEvent = function (_Event) {
   _inherits(OfflineAudioCompletionEvent, _Event);
 
   function OfflineAudioCompletionEvent(admission, node) {
@@ -2591,7 +3075,7 @@ var OfflineAudioCompletionEvent = (function (_Event) {
       throw new TypeError("Illegal constructor");
     });
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(OfflineAudioCompletionEvent).call(this, "complete", node));
+    var _this = _possibleConstructorReturn(this, (OfflineAudioCompletionEvent.__proto__ || Object.getPrototypeOf(OfflineAudioCompletionEvent)).call(this, "complete", node));
 
     _this._.node = node;
     return _this;
@@ -2610,20 +3094,20 @@ var OfflineAudioCompletionEvent = (function (_Event) {
   }]);
 
   return OfflineAudioCompletionEvent;
-})(_Event3.default);
+}(_Event3.default);
 
 exports.default = OfflineAudioCompletionEvent;
 },{"./dom/Event":35,"./utils/Immigration":42}],22:[function(require,module,exports){
 "use strict";
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _desc, _value, _class;
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _desc, _value, _class;
 
 var _Configuration = require("./utils/Configuration");
 
@@ -2671,6 +3155,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var configuration = _Configuration2.default.getInstance();
 var immigration = _Immigration2.default.getInstance();
 
@@ -2686,13 +3199,13 @@ var OfflineAudioContext = (_dec = methods.param("numberOfChannels", validators.i
       throw new TypeError("not enabled");
     }
   }
-}), (_class = (function (_AudioContext) {
+}), (_class = function (_AudioContext) {
   _inherits(OfflineAudioContext, _AudioContext);
 
   function OfflineAudioContext(numberOfChannels, length, sampleRate) {
     _classCallCheck(this, OfflineAudioContext);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(OfflineAudioContext).call(this));
+    var _this = _possibleConstructorReturn(this, (OfflineAudioContext.__proto__ || Object.getPrototypeOf(OfflineAudioContext)).call(this));
 
     _this.__OfflineAudioContext(numberOfChannels, length, sampleRate);
     return _this;
@@ -2808,19 +3321,19 @@ var OfflineAudioContext = (_dec = methods.param("numberOfChannels", validators.i
   }]);
 
   return OfflineAudioContext;
-})(_AudioContext3.default), (_desc = _dec(_class.prototype, "__OfflineAudioContext", _desc = _dec2(_class.prototype, "__OfflineAudioContext", _desc = _dec3(_class.prototype, "__OfflineAudioContext", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__OfflineAudioContext")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "__OfflineAudioContext", _desc) : void 0, _desc = _dec4(_class.prototype, "oncomplete", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "oncomplete")) || _desc, _desc ? Object.defineProperty(_class.prototype, "oncomplete", _desc) : void 0, _desc = _dec5(_class.prototype, "startRendering", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "startRendering")) || _desc, _desc ? Object.defineProperty(_class.prototype, "startRendering", _desc) : void 0, _desc = _dec6(_class.prototype, "__transitionToState", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__transitionToState")) || _desc, _desc ? Object.defineProperty(_class.prototype, "__transitionToState", _desc) : void 0), _class));
+}(_AudioContext3.default), (_applyDecoratedDescriptor(_class.prototype, "__OfflineAudioContext", [_dec, _dec2, _dec3], Object.getOwnPropertyDescriptor(_class.prototype, "__OfflineAudioContext"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "oncomplete", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "oncomplete"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "startRendering", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "startRendering"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__transitionToState", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "__transitionToState"), _class.prototype)), _class));
 exports.default = OfflineAudioContext;
 },{"./AudioBuffer":3,"./AudioContext":5,"./OfflineAudioCompletionEvent":21,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/Configuration":41,"./utils/Immigration":42,"./validators":56}],23:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -2860,6 +3373,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var OscillatorNode = (_dec = props.enums(["sine", "square", "sawtooth", "triangle"]), _dec2 = props.audioparam(440), _dec3 = props.audioparam(0), _dec4 = props.on("ended"), _dec5 = methods.param("[ when ]", validators.isPositiveNumber), _dec6 = methods.contract({
   precondition: function precondition() {
     if (this._.startTime !== Infinity) {
@@ -2875,13 +3417,13 @@ var OscillatorNode = (_dec = props.enums(["sine", "square", "sawtooth", "triangl
       throw new Error("Cannot stop more than once.");
     }
   }
-}), _dec9 = methods.param("periodicWave", validators.isInstanceOf(_PeriodicWave2.default)), (_class = (_temp = _class2 = (function (_AudioNode) {
+}), _dec9 = methods.param("periodicWave", validators.isInstanceOf(_PeriodicWave2.default)), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(OscillatorNode, _AudioNode);
 
   function OscillatorNode(admission, context) {
     _classCallCheck(this, OscillatorNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(OscillatorNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (OscillatorNode.__proto__ || Object.getPrototypeOf(OscillatorNode)).call(this, admission, {
       name: "OscillatorNode",
       context: context,
       numberOfInputs: 0,
@@ -2913,14 +3455,14 @@ var OscillatorNode = (_dec = props.enums(["sine", "square", "sawtooth", "triangl
   }, {
     key: "start",
     value: function start() {
-      var when = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
+      var when = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
       this._.startTime = when;
     }
   }, {
     key: "stop",
     value: function stop() {
-      var when = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
+      var when = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
       this._.stopTime = when;
     }
@@ -2978,19 +3520,19 @@ var OscillatorNode = (_dec = props.enums(["sine", "square", "sawtooth", "triangl
   }]);
 
   return OscillatorNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["type", "frequency", "detune"], _temp), (_desc = _dec(_class.prototype, "type", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "type")) || _desc, _desc ? Object.defineProperty(_class.prototype, "type", _desc) : void 0, _desc = _dec2(_class.prototype, "frequency", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "frequency")) || _desc, _desc ? Object.defineProperty(_class.prototype, "frequency", _desc) : void 0, _desc = _dec3(_class.prototype, "detune", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "detune")) || _desc, _desc ? Object.defineProperty(_class.prototype, "detune", _desc) : void 0, _desc = _dec4(_class.prototype, "onended", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "onended")) || _desc, _desc ? Object.defineProperty(_class.prototype, "onended", _desc) : void 0, _desc = _dec5(_class.prototype, "start", _desc = _dec6(_class.prototype, "start", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "start")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "start", _desc) : void 0, _desc = _dec7(_class.prototype, "stop", _desc = _dec8(_class.prototype, "stop", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "stop")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "stop", _desc) : void 0, _desc = _dec9(_class.prototype, "setPeriodicWave", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setPeriodicWave")) || _desc, _desc ? Object.defineProperty(_class.prototype, "setPeriodicWave", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["type", "frequency", "detune"], _temp), (_applyDecoratedDescriptor(_class.prototype, "type", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "type"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "frequency", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "frequency"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "detune", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "detune"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onended", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "onended"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "start", [_dec5, _dec6], Object.getOwnPropertyDescriptor(_class.prototype, "start"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "stop", [_dec7, _dec8], Object.getOwnPropertyDescriptor(_class.prototype, "stop"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setPeriodicWave", [_dec9], Object.getOwnPropertyDescriptor(_class.prototype, "setPeriodicWave"), _class.prototype)), _class));
 exports.default = OscillatorNode;
 },{"./AudioNode":8,"./PeriodicWave":25,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/toSeconds":55,"./validators":56}],24:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -3018,13 +3560,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PannerNode = (_dec = props.enums(["HRTF", "equalpower"]), _dec2 = props.enums(["inverse", "linear", "exponential"]), _dec3 = props.typed(validators.isNumber, 1), _dec4 = props.typed(validators.isNumber, 10000), _dec5 = props.typed(validators.isNumber, 1), _dec6 = props.typed(validators.isNumber, 360), _dec7 = props.typed(validators.isNumber, 360), _dec8 = props.typed(validators.isNumber, 0), _dec9 = methods.param("x", validators.isNumber), _dec10 = methods.param("y", validators.isNumber), _dec11 = methods.param("z", validators.isNumber), _dec12 = methods.param("x", validators.isNumber), _dec13 = methods.param("y", validators.isNumber), _dec14 = methods.param("z", validators.isNumber), _dec15 = methods.param("x", validators.isNumber), _dec16 = methods.param("y", validators.isNumber), _dec17 = methods.param("z", validators.isNumber), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var PannerNode = (_dec = props.enums(["HRTF", "equalpower"]), _dec2 = props.enums(["inverse", "linear", "exponential"]), _dec3 = props.typed(validators.isNumber, 1), _dec4 = props.typed(validators.isNumber, 10000), _dec5 = props.typed(validators.isNumber, 1), _dec6 = props.typed(validators.isNumber, 360), _dec7 = props.typed(validators.isNumber, 360), _dec8 = props.typed(validators.isNumber, 0), _dec9 = methods.param("x", validators.isNumber), _dec10 = methods.param("y", validators.isNumber), _dec11 = methods.param("z", validators.isNumber), _dec12 = methods.param("x", validators.isNumber), _dec13 = methods.param("y", validators.isNumber), _dec14 = methods.param("z", validators.isNumber), _dec15 = methods.param("x", validators.isNumber), _dec16 = methods.param("y", validators.isNumber), _dec17 = methods.param("z", validators.isNumber), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(PannerNode, _AudioNode);
 
   function PannerNode(admission, context) {
     _classCallCheck(this, PannerNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(PannerNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (PannerNode.__proto__ || Object.getPrototypeOf(PannerNode)).call(this, admission, {
       name: "PannerNode",
       context: context,
       numberOfInputs: 1,
@@ -3071,19 +3642,19 @@ var PannerNode = (_dec = props.enums(["HRTF", "equalpower"]), _dec2 = props.enum
   }]);
 
   return PannerNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["panningModel", "distanceModel", "refDistance", "maxDistance", "rolloffFactor", "coneInnerAngle", "coneOuterAngle", "coneOuterGain"], _temp), (_desc = _dec(_class.prototype, "panningModel", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "panningModel")) || _desc, _desc ? Object.defineProperty(_class.prototype, "panningModel", _desc) : void 0, _desc = _dec2(_class.prototype, "distanceModel", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "distanceModel")) || _desc, _desc ? Object.defineProperty(_class.prototype, "distanceModel", _desc) : void 0, _desc = _dec3(_class.prototype, "refDistance", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "refDistance")) || _desc, _desc ? Object.defineProperty(_class.prototype, "refDistance", _desc) : void 0, _desc = _dec4(_class.prototype, "maxDistance", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "maxDistance")) || _desc, _desc ? Object.defineProperty(_class.prototype, "maxDistance", _desc) : void 0, _desc = _dec5(_class.prototype, "rolloffFactor", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "rolloffFactor")) || _desc, _desc ? Object.defineProperty(_class.prototype, "rolloffFactor", _desc) : void 0, _desc = _dec6(_class.prototype, "coneInnerAngle", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "coneInnerAngle")) || _desc, _desc ? Object.defineProperty(_class.prototype, "coneInnerAngle", _desc) : void 0, _desc = _dec7(_class.prototype, "coneOuterAngle", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "coneOuterAngle")) || _desc, _desc ? Object.defineProperty(_class.prototype, "coneOuterAngle", _desc) : void 0, _desc = _dec8(_class.prototype, "coneOuterGain", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "coneOuterGain")) || _desc, _desc ? Object.defineProperty(_class.prototype, "coneOuterGain", _desc) : void 0, _desc = _dec9(_class.prototype, "setPosition", _desc = _dec10(_class.prototype, "setPosition", _desc = _dec11(_class.prototype, "setPosition", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setPosition")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setPosition", _desc) : void 0, _desc = _dec12(_class.prototype, "setOrientation", _desc = _dec13(_class.prototype, "setOrientation", _desc = _dec14(_class.prototype, "setOrientation", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setOrientation")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setOrientation", _desc) : void 0, _desc = _dec15(_class.prototype, "setVelocity", _desc = _dec16(_class.prototype, "setVelocity", _desc = _dec17(_class.prototype, "setVelocity", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "setVelocity")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "setVelocity", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["panningModel", "distanceModel", "refDistance", "maxDistance", "rolloffFactor", "coneInnerAngle", "coneOuterAngle", "coneOuterGain"], _temp), (_applyDecoratedDescriptor(_class.prototype, "panningModel", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "panningModel"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "distanceModel", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "distanceModel"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "refDistance", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "refDistance"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "maxDistance", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "maxDistance"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "rolloffFactor", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "rolloffFactor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "coneInnerAngle", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "coneInnerAngle"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "coneOuterAngle", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "coneOuterAngle"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "coneOuterGain", [_dec8], Object.getOwnPropertyDescriptor(_class.prototype, "coneOuterGain"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setPosition", [_dec9, _dec10, _dec11], Object.getOwnPropertyDescriptor(_class.prototype, "setPosition"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setOrientation", [_dec12, _dec13, _dec14], Object.getOwnPropertyDescriptor(_class.prototype, "setOrientation"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setVelocity", [_dec15, _dec16, _dec17], Object.getOwnPropertyDescriptor(_class.prototype, "setVelocity"), _class.prototype)), _class));
 exports.default = PannerNode;
 },{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":56}],25:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _desc, _value, _class;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _desc, _value, _class;
 
 var _Immigration = require("./utils/Immigration");
 
@@ -3103,6 +3674,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var immigration = _Immigration2.default.getInstance();
 
 var PeriodicWave = (_dec = methods.param("real", validators.isInstanceOf(Float32Array)), _dec2 = methods.param("imag", validators.isInstanceOf(Float32Array)), _dec3 = methods.contract({
@@ -3117,7 +3717,7 @@ var PeriodicWave = (_dec = methods.param("real", validators.isInstanceOf(Float32
       throw new TypeError("The length of \"{{real}}\" array (" + real.length + ") and length of \"imag\" array (" + imag.length + ") must match.");
     }
   }
-}), (_class = (function () {
+}), (_class = function () {
   function PeriodicWave(admission, context, real, imag) {
     _classCallCheck(this, PeriodicWave);
 
@@ -3159,19 +3759,19 @@ var PeriodicWave = (_dec = methods.param("real", validators.isInstanceOf(Float32
   }]);
 
   return PeriodicWave;
-})(), (_desc = _dec(_class.prototype, "__createPeriodicWave", _desc = _dec2(_class.prototype, "__createPeriodicWave", _desc = _dec3(_class.prototype, "__createPeriodicWave", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createPeriodicWave")) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createPeriodicWave", _desc) : void 0), _class));
+}(), (_applyDecoratedDescriptor(_class.prototype, "__createPeriodicWave", [_dec, _dec2, _dec3], Object.getOwnPropertyDescriptor(_class.prototype, "__createPeriodicWave"), _class.prototype)), _class));
 exports.default = PeriodicWave;
 },{"./decorators/methods":32,"./utils/Immigration":42,"./validators":56}],26:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _desc, _value, _class, _class2, _temp;
 
 var _Immigration = require("./utils/Immigration");
 
@@ -3211,6 +3811,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 var immigration = _Immigration2.default.getInstance();
 
 var ScriptProcessorNode = (_dec = methods.param("bufferSize", validators.isPositiveInteger), _dec2 = methods.param("numberOfInputChannels", validators.isPositiveInteger), _dec3 = methods.param("numberOfOutputChannels", validators.isPositiveInteger), _dec4 = methods.contract({
@@ -3219,13 +3848,13 @@ var ScriptProcessorNode = (_dec = methods.param("bufferSize", validators.isPosit
       throw new TypeError("The {{bufferSize}} should be one of [ 256, 512, 1024, 2048, 4096, 8192, 16384 ], but got " + bufferSize + ".");
     }
   }
-}), _dec5 = props.readonly(), _dec6 = props.on("audioprocess"), (_class = (_temp = _class2 = (function (_AudioNode) {
+}), _dec5 = props.readonly(), _dec6 = props.on("audioprocess"), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(ScriptProcessorNode, _AudioNode);
 
   function ScriptProcessorNode(admission, context, bufferSize, numberOfInputChannels, numberOfOutputChannels) {
     _classCallCheck(this, ScriptProcessorNode);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ScriptProcessorNode).call(this, admission, {
+    var _this = _possibleConstructorReturn(this, (ScriptProcessorNode.__proto__ || Object.getPrototypeOf(ScriptProcessorNode)).call(this, admission, {
       name: "ScriptProcessorNode",
       context: context,
       numberOfInputs: 1,
@@ -3283,19 +3912,19 @@ var ScriptProcessorNode = (_dec = methods.param("bufferSize", validators.isPosit
   }]);
 
   return ScriptProcessorNode;
-})(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_desc = _dec(_class.prototype, "__createScriptProcessor", _desc = _dec2(_class.prototype, "__createScriptProcessor", _desc = _dec3(_class.prototype, "__createScriptProcessor", _desc = _dec4(_class.prototype, "__createScriptProcessor", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "__createScriptProcessor")) || _desc) || _desc) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "__createScriptProcessor", _desc) : void 0, _desc = _dec5(_class.prototype, "bufferSize", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "bufferSize")) || _desc, _desc ? Object.defineProperty(_class.prototype, "bufferSize", _desc) : void 0, _desc = _dec6(_class.prototype, "onaudioprocess", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "onaudioprocess")) || _desc, _desc ? Object.defineProperty(_class.prototype, "onaudioprocess", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createScriptProcessor", [_dec, _dec2, _dec3, _dec4], Object.getOwnPropertyDescriptor(_class.prototype, "__createScriptProcessor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "bufferSize", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "bufferSize"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onaudioprocess", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "onaudioprocess"), _class.prototype)), _class));
 exports.default = ScriptProcessorNode;
 },{"./AudioBuffer":3,"./AudioNode":8,"./AudioProcessingEvent":10,"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":42,"./validators":56}],27:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -3315,13 +3944,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var StereoPannerNode = (_dec = props.audioparam(0), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var StereoPannerNode = (_dec = props.audioparam(0), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(StereoPannerNode, _AudioNode);
 
   function StereoPannerNode(admission, context) {
     _classCallCheck(this, StereoPannerNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(StereoPannerNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (StereoPannerNode.__proto__ || Object.getPrototypeOf(StereoPannerNode)).call(this, admission, {
       name: "StereoPannerNode",
       context: context,
       numberOfInputs: 1,
@@ -3338,19 +3996,19 @@ var StereoPannerNode = (_dec = props.audioparam(0), (_class = (_temp = _class2 =
   }]);
 
   return StereoPannerNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["pan"], _temp), (_desc = _dec(_class.prototype, "pan", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "pan")) || _desc, _desc ? Object.defineProperty(_class.prototype, "pan", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["pan"], _temp), (_applyDecoratedDescriptor(_class.prototype, "pan", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "pan"), _class.prototype)), _class));
 exports.default = StereoPannerNode;
 },{"./AudioNode":8,"./decorators/props":33}],28:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _desc, _value, _class, _class2, _temp;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _desc, _value, _class, _class2, _temp;
 
 var _AudioNode2 = require("./AudioNode");
 
@@ -3374,13 +4032,42 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var WaveShaperNode = (_dec = props.typed(validators.isNullOrInstanceOf(Float32Array), null), _dec2 = props.enums(["none", "2x", "4x"]), (_class = (_temp = _class2 = (function (_AudioNode) {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
+var WaveShaperNode = (_dec = props.typed(validators.isNullOrInstanceOf(Float32Array), null), _dec2 = props.enums(["none", "2x", "4x"]), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(WaveShaperNode, _AudioNode);
 
   function WaveShaperNode(admission, context) {
     _classCallCheck(this, WaveShaperNode);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(WaveShaperNode).call(this, admission, {
+    return _possibleConstructorReturn(this, (WaveShaperNode.__proto__ || Object.getPrototypeOf(WaveShaperNode)).call(this, admission, {
       name: "WaveShaperNode",
       context: context,
       numberOfInputs: 1,
@@ -3400,10 +4087,10 @@ var WaveShaperNode = (_dec = props.typed(validators.isNullOrInstanceOf(Float32Ar
   }]);
 
   return WaveShaperNode;
-})(_AudioNode3.default), _class2.$JSONKeys = ["oversample"], _temp), (_desc = _dec(_class.prototype, "curve", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "curve")) || _desc, _desc ? Object.defineProperty(_class.prototype, "curve", _desc) : void 0, _desc = _dec2(_class.prototype, "oversample", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "oversample")) || _desc, _desc ? Object.defineProperty(_class.prototype, "oversample", _desc) : void 0), _class));
+}(_AudioNode3.default), _class2.$JSONKeys = ["oversample"], _temp), (_applyDecoratedDescriptor(_class.prototype, "curve", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "curve"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "oversample", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "oversample"), _class.prototype)), _class));
 exports.default = WaveShaperNode;
 },{"./AudioNode":8,"./decorators/props":33,"./validators":56}],29:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3438,9 +4125,9 @@ exports.default = {
   StereoPannerNode: global.StereoPannerNode,
   WaveShaperNode: global.WaveShaperNode
 };
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],30:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3705,7 +4392,7 @@ var WebAudioTestAPI = {
 };
 
 exports.default = WebAudioTestAPI;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./AnalyserNode":2,"./AudioBuffer":3,"./AudioBufferSourceNode":4,"./AudioContext":5,"./AudioDestinationNode":6,"./AudioListener":7,"./AudioNode":8,"./AudioParam":9,"./AudioProcessingEvent":10,"./BiquadFilterNode":11,"./ChannelMergerNode":12,"./ChannelSplitterNode":13,"./ConvolverNode":14,"./DelayNode":15,"./DynamicsCompressorNode":16,"./GainNode":17,"./MediaElementAudioSourceNode":18,"./MediaStreamAudioDestinationNode":19,"./MediaStreamAudioSourceNode":20,"./OfflineAudioCompletionEvent":21,"./OfflineAudioContext":22,"./OscillatorNode":23,"./PannerNode":24,"./PeriodicWave":25,"./ScriptProcessorNode":26,"./StereoPannerNode":27,"./WaveShaperNode":28,"./WebAudioAPI":29,"./dom/Element":34,"./dom/Event":35,"./dom/EventTarget":36,"./dom/HTMLElement":37,"./dom/HTMLMediaElement":38,"./dom/MediaStream":39,"./utils/Configuration":41,"./utils/Immigration":42,"./utils/getAPIVersion":48}],31:[function(require,module,exports){
 "use strict";
 
@@ -3716,11 +4403,12 @@ exports.default = "0.5.2";
 },{}],32:[function(require,module,exports){
 "use strict";
 
-var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; })();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 exports.param = param;
 exports.returns = returns;
 exports.contract = contract;
@@ -3781,12 +4469,10 @@ function createExecuteError(klassName, methodName, parameters, returnValue, mess
   var matches = /{{(\w+)}}/.exec(message);
 
   if (matches) {
-    var _createMethodForm = createMethodForm(methodName, parameters, returnValue, matches[1]);
-
-    var _createMethodForm2 = _slicedToArray(_createMethodForm, 2);
-
-    var errArgIndex = _createMethodForm2[0];
-    var methodForm = _createMethodForm2[1];
+    var _createMethodForm = createMethodForm(methodName, parameters, returnValue, matches[1]),
+        _createMethodForm2 = _slicedToArray(_createMethodForm, 2),
+        errArgIndex = _createMethodForm2[0],
+        methodForm = _createMethodForm2[1];
 
     if (errArgIndex !== -1) {
       message = ["\t" + methodForm, "\t" + repeat(" ", errArgIndex) + "|", "\t" + repeat(" ", errArgIndex) + message].join("\n");
@@ -3907,8 +4593,8 @@ function returns(validator) {
 }
 
 function contract(_ref) {
-  var precondition = _ref.precondition;
-  var postcondition = _ref.postcondition;
+  var precondition = _ref.precondition,
+      postcondition = _ref.postcondition;
 
   return function (target, methodName, descriptor) {
     var methodConfig = getMethodConfig(target, methodName);
@@ -3921,7 +4607,7 @@ function contract(_ref) {
   };
 }
 },{"../utils/format":47,"../utils/toS":54}],33:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4086,9 +4772,9 @@ function typed(validator, defaultValue) {
     };
   };
 }
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../utils/Immigration":42,"../utils/format":47,"../utils/toS":54}],34:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4112,45 +4798,45 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-global.Element = global.Element || (function (_EventTarget) {
+global.Element = global.Element || function (_EventTarget) {
   _inherits(Element, _EventTarget);
 
   function Element() {
     _classCallCheck(this, Element);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Element).call(this));
+    var _this = _possibleConstructorReturn(this, (Element.__proto__ || Object.getPrototypeOf(Element)).call(this));
 
     throw new TypeError("Illegal constructor");
     return _this;
   }
 
   return Element;
-})(_EventTarget3.default);
+}(_EventTarget3.default);
 
-var Element = (function (_inLaws) {
+var Element = function (_inLaws) {
   _inherits(Element, _inLaws);
 
   function Element() {
     _classCallCheck(this, Element);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Element).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Element.__proto__ || Object.getPrototypeOf(Element)).apply(this, arguments));
   }
 
   return Element;
-})((0, _inLaws3.default)(global.Element));
+}((0, _inLaws3.default)(global.Element));
 
 exports.default = Element;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../utils/inLaws":49,"./EventTarget":36}],35:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _inLaws2 = require("../utils/inLaws");
 
@@ -4174,13 +4860,13 @@ global.Event = global.Event || function Event() {
   throw new TypeError("Illegal constructor");
 };
 
-var Event = (function (_inLaws) {
+var Event = function (_inLaws) {
   _inherits(Event, _inLaws);
 
   function Event(name, target) {
     _classCallCheck(this, Event);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Event).call(this));
+    var _this = _possibleConstructorReturn(this, (Event.__proto__ || Object.getPrototypeOf(Event)).call(this));
 
     Object.defineProperty(_this, "_", { value: {} });
 
@@ -4208,22 +4894,22 @@ var Event = (function (_inLaws) {
   }]);
 
   return Event;
-})((0, _inLaws3.default)(global.Event));
+}((0, _inLaws3.default)(global.Event));
 
 exports.default = Event;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../utils/defaults":46,"../utils/inLaws":49}],36:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _dec, _dec2, _dec3, _dec4, _dec5, _desc, _value, _class;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _dec2, _dec3, _dec4, _dec5, _desc, _value, _class;
 
 var _events = require("events");
 
@@ -4251,6 +4937,35 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
+
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
+
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
+
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
+
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
+
+  return desc;
+}
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var EMITTER = Symbol("emitter");
@@ -4261,13 +4976,13 @@ global.EventTarget = global.EventTarget || function EventTarget() {
   throw new TypeError("Illegal constructor");
 };
 
-var EventTarget = (_dec = methods.param("type", validators.isString), _dec2 = methods.param("listener", validators.isFunction), _dec3 = methods.param("type", validators.isString), _dec4 = methods.param("listener", validators.isFunction), _dec5 = methods.param("event", validators.isInstanceOf(_Event2.default)), (_class = (function (_inLaws) {
+var EventTarget = (_dec = methods.param("type", validators.isString), _dec2 = methods.param("listener", validators.isFunction), _dec3 = methods.param("type", validators.isString), _dec4 = methods.param("listener", validators.isFunction), _dec5 = methods.param("event", validators.isInstanceOf(_Event2.default)), (_class = function (_inLaws) {
   _inherits(EventTarget, _inLaws);
 
   function EventTarget() {
     _classCallCheck(this, EventTarget);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(EventTarget).call(this));
+    var _this = _possibleConstructorReturn(this, (EventTarget.__proto__ || Object.getPrototypeOf(EventTarget)).call(this));
 
     _this[EMITTER] = new _events.EventEmitter();
     return _this;
@@ -4363,11 +5078,11 @@ var EventTarget = (_dec = methods.param("type", validators.isString), _dec2 = me
   }]);
 
   return EventTarget;
-})((0, _inLaws3.default)(global.EventTarget)), (_desc = _dec(_class.prototype, "addEventListener", _desc = _dec2(_class.prototype, "addEventListener", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "addEventListener")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "addEventListener", _desc) : void 0, _desc = _dec3(_class.prototype, "removeEventListener", _desc = _dec4(_class.prototype, "removeEventListener", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "removeEventListener")) || _desc) || _desc, _desc ? Object.defineProperty(_class.prototype, "removeEventListener", _desc) : void 0, _desc = _dec5(_class.prototype, "dispatchEvent", _desc = Object.getOwnPropertyDescriptor(_class.prototype, "dispatchEvent")) || _desc, _desc ? Object.defineProperty(_class.prototype, "dispatchEvent", _desc) : void 0), _class));
+}((0, _inLaws3.default)(global.EventTarget)), (_applyDecoratedDescriptor(_class.prototype, "addEventListener", [_dec, _dec2], Object.getOwnPropertyDescriptor(_class.prototype, "addEventListener"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "removeEventListener", [_dec3, _dec4], Object.getOwnPropertyDescriptor(_class.prototype, "removeEventListener"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "dispatchEvent", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "dispatchEvent"), _class.prototype)), _class));
 exports.default = EventTarget;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../decorators/methods":32,"../utils/inLaws":49,"../validators":56,"./Event":35,"events":67}],37:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4391,37 +5106,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-global.HTMLElement = global.HTMLElement || (function (_Element) {
+global.HTMLElement = global.HTMLElement || function (_Element) {
   _inherits(HTMLElement, _Element);
 
   function HTMLElement() {
     _classCallCheck(this, HTMLElement);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HTMLElement).call(this));
+    var _this = _possibleConstructorReturn(this, (HTMLElement.__proto__ || Object.getPrototypeOf(HTMLElement)).call(this));
 
     throw new TypeError("Illegal constructor");
     return _this;
   }
 
   return HTMLElement;
-})(_Element3.default);
+}(_Element3.default);
 
-var HTMLElement = (function (_inLaws) {
+var HTMLElement = function (_inLaws) {
   _inherits(HTMLElement, _inLaws);
 
   function HTMLElement() {
     _classCallCheck(this, HTMLElement);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(HTMLElement).apply(this, arguments));
+    return _possibleConstructorReturn(this, (HTMLElement.__proto__ || Object.getPrototypeOf(HTMLElement)).apply(this, arguments));
   }
 
   return HTMLElement;
-})((0, _inLaws3.default)(global.HTMLElement));
+}((0, _inLaws3.default)(global.HTMLElement));
 
 exports.default = HTMLElement;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../utils/inLaws":49,"./Element":34}],38:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4445,37 +5160,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-global.HTMLMediaElement = global.HTMLMediaElement || (function (_HTMLElement) {
+global.HTMLMediaElement = global.HTMLMediaElement || function (_HTMLElement) {
   _inherits(HTMLMediaElement, _HTMLElement);
 
   function HTMLMediaElement() {
     _classCallCheck(this, HTMLMediaElement);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HTMLMediaElement).call(this));
+    var _this = _possibleConstructorReturn(this, (HTMLMediaElement.__proto__ || Object.getPrototypeOf(HTMLMediaElement)).call(this));
 
     throw new TypeError("Illegal constructor");
     return _this;
   }
 
   return HTMLMediaElement;
-})(_HTMLElement3.default);
+}(_HTMLElement3.default);
 
-var HTMLMediaElement = (function (_inLaws) {
+var HTMLMediaElement = function (_inLaws) {
   _inherits(HTMLMediaElement, _inLaws);
 
   function HTMLMediaElement() {
     _classCallCheck(this, HTMLMediaElement);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(HTMLMediaElement).apply(this, arguments));
+    return _possibleConstructorReturn(this, (HTMLMediaElement.__proto__ || Object.getPrototypeOf(HTMLMediaElement)).apply(this, arguments));
   }
 
   return HTMLMediaElement;
-})((0, _inLaws3.default)(global.HTMLMediaElement));
+}((0, _inLaws3.default)(global.HTMLMediaElement));
 
 exports.default = HTMLMediaElement;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../utils/inLaws":49,"./HTMLElement":37}],39:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4499,37 +5214,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-global.MediaStream = global.MediaStream || (function (_EventTarget) {
+global.MediaStream = global.MediaStream || function (_EventTarget) {
   _inherits(MediaStream, _EventTarget);
 
   function MediaStream() {
     _classCallCheck(this, MediaStream);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MediaStream).call(this));
+    var _this = _possibleConstructorReturn(this, (MediaStream.__proto__ || Object.getPrototypeOf(MediaStream)).call(this));
 
     throw new TypeError("Illegal constructor");
     return _this;
   }
 
   return MediaStream;
-})(_EventTarget3.default);
+}(_EventTarget3.default);
 
-var MediaStream = (function (_inLaws) {
+var MediaStream = function (_inLaws) {
   _inherits(MediaStream, _inLaws);
 
   function MediaStream() {
     _classCallCheck(this, MediaStream);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(MediaStream).apply(this, arguments));
+    return _possibleConstructorReturn(this, (MediaStream.__proto__ || Object.getPrototypeOf(MediaStream)).apply(this, arguments));
   }
 
   return MediaStream;
-})((0, _inLaws3.default)(global.MediaStream));
+}((0, _inLaws3.default)(global.MediaStream));
 
 exports.default = MediaStream;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../utils/inLaws":49,"./EventTarget":36}],40:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4547,16 +5262,18 @@ if (!global.WEB_AUDIO_TEST_API_IGNORE) {
 }
 
 exports.default = _WebAudioTestAPI2.default;
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./WebAudioTestAPI":30}],41:[function(require,module,exports){
 "use strict";
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _api = require("./api");
 
@@ -4564,13 +5281,11 @@ var _api2 = _interopRequireDefault(_api);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instance = null;
 
-var Configuration = (function () {
+var Configuration = function () {
   function Configuration() {
     var _this = this;
 
@@ -4596,18 +5311,12 @@ var Configuration = (function () {
       var _this2 = this;
 
       if (name && (typeof name === "undefined" ? "undefined" : _typeof(name)) === "object") {
-        var _ret = (function () {
-          var dict = name;
+        var dict = name;
 
-          Object.keys(dict).forEach(function (name) {
-            _this2.setState(name, dict[name]);
-          });
-          return {
-            v: undefined
-          };
-        })();
-
-        if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
+        Object.keys(dict).forEach(function (name) {
+          _this2.setState(name, dict[name]);
+        });
+        return;
       }
       if (!this._states.hasOwnProperty(name)) {
         throw new TypeError("invalid state name " + name);
@@ -4628,23 +5337,23 @@ var Configuration = (function () {
   }]);
 
   return Configuration;
-})();
+}();
 
 exports.default = Configuration;
 },{"./api":44}],42:[function(require,module,exports){
 "use strict";
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var instance = null;
 
-var Immigration = (function () {
+var Immigration = function () {
   function Immigration() {
     _classCallCheck(this, Immigration);
 
@@ -4690,18 +5399,18 @@ var Immigration = (function () {
   }]);
 
   return Immigration;
-})();
+}();
 
 exports.default = Immigration;
 },{}],43:[function(require,module,exports){
 "use strict";
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _appendIfNotExists = require("./appendIfNotExists");
 
@@ -4715,7 +5424,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Junction = (function () {
+var Junction = function () {
   function Junction(node, index) {
     _classCallCheck(this, Junction);
 
@@ -4788,7 +5497,7 @@ var Junction = (function () {
   }]);
 
   return Junction;
-})();
+}();
 
 exports.default = Junction;
 },{"./appendIfNotExists":45,"./removeIfExists":50}],44:[function(require,module,exports){
@@ -4939,9 +5648,9 @@ var _toNodeName2 = _interopRequireDefault(_toNodeName);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function toJSON(node, func) {
-  var memo = arguments.length <= 2 || arguments[2] === undefined ? [] : arguments[2];
+  var memo = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
-  var result = undefined;
+  var result = void 0;
 
   if (memo.indexOf(node) !== -1) {
     return "<circular:" + (0, _toNodeName2.default)(node) + ">";
@@ -5009,10 +5718,10 @@ function toNodeName(obj) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 exports.default = toS;
-
-function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
-
 function toS(value) {
   if (value === null || typeof value === "undefined") {
     return String(value);
@@ -5031,7 +5740,7 @@ function toS(value) {
     return "[ " + value.map(toS).join(", ") + " ]";
   }
 
-  if (value.constructor === ({}).constructor) {
+  if (value.constructor === {}.constructor) {
     return "{ " + Object.keys(value).map(function (key) {
       return key + ": " + toS(value[key]);
     }).join(", ") + "}";
@@ -5119,7 +5828,7 @@ exports.isPositiveInteger = _isPositiveInteger3.default;
 exports.isPositiveNumber = _isPositiveNumber3.default;
 exports.isString = _isString3.default;
 },{"./isAudioSource":57,"./isBoolean":58,"./isFunction":59,"./isInstanceOf":60,"./isInteger":61,"./isNullOrInstanceOf":62,"./isNumber":63,"./isPositiveInteger":64,"./isPositiveNumber":65,"./isString":66}],57:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5132,7 +5841,7 @@ exports.default = {
     return value instanceof global.AudioNode || value instanceof global.AudioParam;
   }
 };
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],58:[function(require,module,exports){
 "use strict";
 
@@ -5316,8 +6025,12 @@ EventEmitter.prototype.emit = function(type) {
       er = arguments[1];
       if (er instanceof Error) {
         throw er; // Unhandled 'error' event
+      } else {
+        // At least give some kind of context to the user
+        var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
+        err.context = er;
+        throw err;
       }
-      throw TypeError('Uncaught, unspecified "error" event.');
     }
   }
 

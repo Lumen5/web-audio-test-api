@@ -210,10 +210,6 @@ describe("AudioBufferSourceNode", function() {
     it("works", function() {
       var node = audioContext.createBufferSource();
 
-      assert.throws(function() {
-        node.stop();
-      }, Error, "not start yet");
-
       node.start();
 
       assert.throws(function() {
@@ -223,19 +219,11 @@ describe("AudioBufferSourceNode", function() {
       node.stop();
 
       assert.throws(function() {
-        node.stop();
-      }, Error, "call twice");
-
-      assert.throws(function() {
         node.start();
       }, Error);
     });
     it("works with when", function() {
       var node = audioContext.createBufferSource();
-
-      assert.throws(function() {
-        node.stop(0);
-      }, Error, "not start yet");
 
       node.start(0);
 
@@ -248,10 +236,6 @@ describe("AudioBufferSourceNode", function() {
       }, TypeError);
 
       node.stop(0);
-
-      assert.throws(function() {
-        node.stop(0);
-      }, Error, "call twice");
 
       assert.throws(function() {
         node.start(0);
