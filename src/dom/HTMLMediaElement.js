@@ -1,4 +1,3 @@
-import inLaws from "../utils/inLaws";
 import HTMLElement from "./HTMLElement";
 
 global.HTMLMediaElement = global.HTMLMediaElement || window.HTMLMediaElement || class HTMLMediaElement extends HTMLElement {
@@ -8,4 +7,4 @@ global.HTMLMediaElement = global.HTMLMediaElement || window.HTMLMediaElement || 
   }
 };
 
-export default class HTMLMediaElement extends inLaws(global.HTMLMediaElement) {}
+export default class HTMLMediaElement extends global.HTMLMediaElement {}
