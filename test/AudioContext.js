@@ -374,7 +374,7 @@ describe("AudioContext", function() {
 
   describe("#createMediaElementSource(mediaElement: HTMLMediaElement): MediaElementAudioSourceNode", function() {
     it("works", function() {
-      var element = new WebAudioTestAPI.HTMLMediaElement();
+      var element = new window.HTMLMediaElement();
       var node = audioContext.createMediaElementSource(element);
 
       assert(node instanceof global.MediaElementAudioSourceNode);

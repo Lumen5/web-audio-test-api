@@ -9,4 +9,6 @@ global.closeTo = function(actual, expected, delta) {
   return Math.abs(actual - expected) <= delta;
 };
 
+global.HTMLMediaElement = class DummyHTMLMediaElement {};
+
 require("../../src");
