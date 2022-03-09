@@ -5,7 +5,6 @@ import Element from "./dom/Element";
 import Event from "./dom/Event";
 import EventTarget from "./dom/EventTarget";
 import HTMLElement from "./dom/HTMLElement";
-import HTMLMediaElement from "./dom/HTMLMediaElement";
 import MediaStream from "./dom/MediaStream";
 import AnalyserNode from "./AnalyserNode";
 import AudioBuffer from "./AudioBuffer";
@@ -63,7 +62,6 @@ let WebAudioTestAPI = {
   EventTarget,
   GainNode,
   HTMLElement,
-  HTMLMediaElement,
   MediaElementAudioSourceNode,
   MediaStream,
   MediaStreamAudioDestinationNode,

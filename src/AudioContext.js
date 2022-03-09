@@ -2,7 +2,6 @@ import Configuration from "./utils/Configuration";
 import Immigration from "./utils/Immigration";
 import Event from "./dom/Event";
 import EventTarget from "./dom/EventTarget";
-import HTMLMediaElement from "./dom/HTMLMediaElement";
 import MediaStream from "./dom/MediaStream";
 import AudioBuffer from "./AudioBuffer";
 import AnalyserNode from "./AnalyserNode";
@@ -178,7 +177,7 @@ export default class AudioContext extends EventTarget {
     );
   }
 
-  @methods.param("mediaElement", validators.isInstanceOf(HTMLMediaElement))
+  @methods.param("mediaElement", validators.isInstanceOf(window.HTMLMediaElement))
   @methods.returns(validators.isInstanceOf(MediaElementAudioSourceNode))
   createMediaElementSource(mediaElement) {
     return immigration.apply(admission =>

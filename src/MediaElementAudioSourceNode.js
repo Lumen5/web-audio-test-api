@@ -1,5 +1,4 @@
 import AudioNode from "./AudioNode";
-import HTMLMediaElement from "./dom/HTMLMediaElement";
 import * as methods from "./decorators/methods";
 import * as validators from "./validators";
 
@@ -19,6 +18,6 @@ export default class MediaElementAudioSourceNode extends AudioNode {
     this.__createMediaElementSource(mediaElement);
   }
 
-  @methods.param("mediaElement", validators.isInstanceOf(HTMLMediaElement))
+  @methods.param("mediaElement", validators.isInstanceOf(window.HTMLMediaElement))
   __createMediaElementSource() {}
 }

@@ -1,7 +1,7 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.WebAudioTestAPI = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 module.exports = require("./lib").default;
 
-},{"./lib":40}],2:[function(require,module,exports){
+},{"./lib":39}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -134,7 +134,7 @@ var AnalyserNode = (_dec = props.enums([32, 64, 128, 256, 512, 1024, 2048]), _de
   return AnalyserNode;
 }(_AudioNode3.default), _class2.$JSONKeys = ["fftSize", "minDecibels", "maxDecibels", "smoothingTimeConstant"], _temp), (_applyDecoratedDescriptor(_class.prototype, "fftSize", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "fftSize"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "frequencyBinCount", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "frequencyBinCount"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "minDecibels", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "minDecibels"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "maxDecibels", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "maxDecibels"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "smoothingTimeConstant", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "smoothingTimeConstant"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getFloatFrequencyData", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "getFloatFrequencyData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getByteFrequencyData", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "getByteFrequencyData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getFloatTimeDomainData", [_dec8, _dec9], Object.getOwnPropertyDescriptor(_class.prototype, "getFloatTimeDomainData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getByteTimeDomainData", [_dec10], Object.getOwnPropertyDescriptor(_class.prototype, "getByteTimeDomainData"), _class.prototype)), _class));
 exports.default = AnalyserNode;
-},{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./utils/Configuration":41,"./validators":56}],3:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./utils/Configuration":40,"./validators":55}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -340,7 +340,7 @@ var AudioBuffer = (_dec = methods.param("numberOfChannels", validators.isPositiv
   return AudioBuffer;
 }(), (_applyDecoratedDescriptor(_class.prototype, "__createAudioBuffer", [_dec, _dec2, _dec3], Object.getOwnPropertyDescriptor(_class.prototype, "__createAudioBuffer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "sampleRate", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "sampleRate"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "length", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "length"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "duration", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "duration"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "numberOfChannels", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "numberOfChannels"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getChannelData", [_dec8, _dec9, _dec10], Object.getOwnPropertyDescriptor(_class.prototype, "getChannelData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "copyFromChannel", [_dec11, _dec12, _dec13, _dec14], Object.getOwnPropertyDescriptor(_class.prototype, "copyFromChannel"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "copyToChannel", [_dec15, _dec16, _dec17, _dec18], Object.getOwnPropertyDescriptor(_class.prototype, "copyToChannel"), _class.prototype)), _class));
 exports.default = AudioBuffer;
-},{"./decorators/methods":32,"./decorators/props":33,"./utils/Configuration":41,"./utils/Immigration":42,"./validators":56}],4:[function(require,module,exports){
+},{"./decorators/methods":32,"./decorators/props":33,"./utils/Configuration":40,"./utils/Immigration":41,"./validators":55}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -538,7 +538,7 @@ var AudioBufferSourceNode = (_dec = props.typed(validators.isNullOrInstanceOf(_A
   return AudioBufferSourceNode;
 }(_AudioNode3.default), _class2.$JSONKeys = ["buffer", "playbackRate", "loop", "loopStart", "loopEnd"], _temp), (_applyDecoratedDescriptor(_class.prototype, "buffer", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "buffer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "playbackRate", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "playbackRate"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "detune", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "detune"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "loop", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "loop"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "loopStart", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "loopStart"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "loopEnd", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "loopEnd"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onended", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "onended"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "start", [_dec8, _dec9, _dec10, _dec11], Object.getOwnPropertyDescriptor(_class.prototype, "start"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "stop", [_dec12], Object.getOwnPropertyDescriptor(_class.prototype, "stop"), _class.prototype)), _class));
 exports.default = AudioBufferSourceNode;
-},{"./AudioBuffer":3,"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/toSeconds":55,"./validators":56}],5:[function(require,module,exports){
+},{"./AudioBuffer":3,"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/toSeconds":54,"./validators":55}],5:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -566,10 +566,6 @@ var _Event2 = _interopRequireDefault(_Event);
 var _EventTarget2 = require("./dom/EventTarget");
 
 var _EventTarget3 = _interopRequireDefault(_EventTarget2);
-
-var _HTMLMediaElement = require("./dom/HTMLMediaElement");
-
-var _HTMLMediaElement2 = _interopRequireDefault(_HTMLMediaElement);
 
 var _MediaStream = require("./dom/MediaStream");
 
@@ -729,7 +725,7 @@ function isEnabledState() {
   return configuration.getState("AudioContext#suspend") === "enabled" || configuration.getState("AudioContext#resume") === "enabled" || configuration.getState("AudioContext#close") === "enabled";
 }
 
-var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = props.readonly(), _dec4 = props.readonly(), _dec5 = props.on("statechange"), _dec6 = methods.returns(validators.isInstanceOf(Promise)), _dec7 = methods.returns(validators.isInstanceOf(Promise)), _dec8 = methods.returns(validators.isInstanceOf(Promise)), _dec9 = methods.param("numberOfChannels", validators.isPositiveInteger), _dec10 = methods.param("length", validators.isPositiveInteger), _dec11 = methods.param("sampleRate", validators.isPositiveInteger), _dec12 = methods.returns(validators.isInstanceOf(_AudioBuffer2.default)), _dec13 = methods.param("audioData", validators.isInstanceOf(ArrayBuffer)), _dec14 = methods.param("[ successCallback ]", validators.isFunction), _dec15 = methods.param("[ errorCallback ]", validators.isFunction), _dec16 = methods.returns(validators.isInstanceOf(_AudioBufferSourceNode2.default)), _dec17 = methods.param("mediaElement", validators.isInstanceOf(_HTMLMediaElement2.default)), _dec18 = methods.returns(validators.isInstanceOf(_MediaElementAudioSourceNode2.default)), _dec19 = methods.param("mediaStream", validators.isInstanceOf(_MediaStream2.default)), _dec20 = methods.returns(validators.isInstanceOf(_MediaStreamAudioSourceNode2.default)), _dec21 = methods.returns(validators.isInstanceOf(_MediaStreamAudioDestinationNode2.default)), _dec22 = methods.contract({
+var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = props.readonly(), _dec4 = props.readonly(), _dec5 = props.on("statechange"), _dec6 = methods.returns(validators.isInstanceOf(Promise)), _dec7 = methods.returns(validators.isInstanceOf(Promise)), _dec8 = methods.returns(validators.isInstanceOf(Promise)), _dec9 = methods.param("numberOfChannels", validators.isPositiveInteger), _dec10 = methods.param("length", validators.isPositiveInteger), _dec11 = methods.param("sampleRate", validators.isPositiveInteger), _dec12 = methods.returns(validators.isInstanceOf(_AudioBuffer2.default)), _dec13 = methods.param("audioData", validators.isInstanceOf(ArrayBuffer)), _dec14 = methods.param("[ successCallback ]", validators.isFunction), _dec15 = methods.param("[ errorCallback ]", validators.isFunction), _dec16 = methods.returns(validators.isInstanceOf(_AudioBufferSourceNode2.default)), _dec17 = methods.param("mediaElement", validators.isInstanceOf(window.HTMLMediaElement)), _dec18 = methods.returns(validators.isInstanceOf(_MediaElementAudioSourceNode2.default)), _dec19 = methods.param("mediaStream", validators.isInstanceOf(_MediaStream2.default)), _dec20 = methods.returns(validators.isInstanceOf(_MediaStreamAudioSourceNode2.default)), _dec21 = methods.returns(validators.isInstanceOf(_MediaStreamAudioDestinationNode2.default)), _dec22 = methods.contract({
   precondition: function precondition() {
     throw new TypeError("not enabled");
   }
@@ -1135,7 +1131,7 @@ var AudioContext = (_dec = props.readonly(), _dec2 = props.readonly(), _dec3 = p
 }(_EventTarget3.default), (_applyDecoratedDescriptor(_class.prototype, "destination", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "destination"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "sampleRate", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "sampleRate"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "currentTime", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "currentTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "listener", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "listener"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onstatechange", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "onstatechange"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "suspend", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "suspend"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "resume", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "resume"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "close", [_dec8], Object.getOwnPropertyDescriptor(_class.prototype, "close"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createBuffer", [_dec9, _dec10, _dec11, _dec12], Object.getOwnPropertyDescriptor(_class.prototype, "createBuffer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "decodeAudioData", [_dec13, _dec14, _dec15], Object.getOwnPropertyDescriptor(_class.prototype, "decodeAudioData"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createBufferSource", [_dec16], Object.getOwnPropertyDescriptor(_class.prototype, "createBufferSource"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createMediaElementSource", [_dec17, _dec18], Object.getOwnPropertyDescriptor(_class.prototype, "createMediaElementSource"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createMediaStreamSource", [_dec19, _dec20], Object.getOwnPropertyDescriptor(_class.prototype, "createMediaStreamSource"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createMediaStreamDestination", [_dec21], Object.getOwnPropertyDescriptor(_class.prototype, "createMediaStreamDestination"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createAudioWorker", [_dec22], Object.getOwnPropertyDescriptor(_class.prototype, "createAudioWorker"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createScriptProcessor", [_dec23, _dec24, _dec25, _dec26], Object.getOwnPropertyDescriptor(_class.prototype, "createScriptProcessor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createAnalyser", [_dec27], Object.getOwnPropertyDescriptor(_class.prototype, "createAnalyser"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createGain", [_dec28], Object.getOwnPropertyDescriptor(_class.prototype, "createGain"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createDelay", [_dec29, _dec30], Object.getOwnPropertyDescriptor(_class.prototype, "createDelay"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createBiquadFilter", [_dec31], Object.getOwnPropertyDescriptor(_class.prototype, "createBiquadFilter"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createWaveShaper", [_dec32], Object.getOwnPropertyDescriptor(_class.prototype, "createWaveShaper"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createPanner", [_dec33], Object.getOwnPropertyDescriptor(_class.prototype, "createPanner"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createStereoPanner", [_dec34, _dec35], Object.getOwnPropertyDescriptor(_class.prototype, "createStereoPanner"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createConvolver", [_dec36], Object.getOwnPropertyDescriptor(_class.prototype, "createConvolver"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createChannelSplitter", [_dec37, _dec38], Object.getOwnPropertyDescriptor(_class.prototype, "createChannelSplitter"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createChannelMerger", [_dec39, _dec40], Object.getOwnPropertyDescriptor(_class.prototype, "createChannelMerger"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createDynamicsCompressor", [_dec41], Object.getOwnPropertyDescriptor(_class.prototype, "createDynamicsCompressor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createOscillator", [_dec42], Object.getOwnPropertyDescriptor(_class.prototype, "createOscillator"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "createPeriodicWave", [_dec43, _dec44, _dec45], Object.getOwnPropertyDescriptor(_class.prototype, "createPeriodicWave"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__transitionToState", [_dec46], Object.getOwnPropertyDescriptor(_class.prototype, "__transitionToState"), _class.prototype)), _class));
 exports.default = AudioContext;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./AnalyserNode":2,"./AudioBuffer":3,"./AudioBufferSourceNode":4,"./AudioDestinationNode":6,"./AudioListener":7,"./BiquadFilterNode":11,"./ChannelMergerNode":12,"./ChannelSplitterNode":13,"./ConvolverNode":14,"./DelayNode":15,"./DynamicsCompressorNode":16,"./GainNode":17,"./MediaElementAudioSourceNode":18,"./MediaStreamAudioDestinationNode":19,"./MediaStreamAudioSourceNode":20,"./OscillatorNode":23,"./PannerNode":24,"./PeriodicWave":25,"./ScriptProcessorNode":26,"./StereoPannerNode":27,"./WaveShaperNode":28,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./dom/EventTarget":36,"./dom/HTMLMediaElement":38,"./dom/MediaStream":39,"./utils/Configuration":41,"./utils/Immigration":42,"./utils/defaults":46,"./utils/getAPIVersion":48,"./utils/toMicroseconds":52,"./validators":56}],6:[function(require,module,exports){
+},{"./AnalyserNode":2,"./AudioBuffer":3,"./AudioBufferSourceNode":4,"./AudioDestinationNode":6,"./AudioListener":7,"./BiquadFilterNode":11,"./ChannelMergerNode":12,"./ChannelSplitterNode":13,"./ConvolverNode":14,"./DelayNode":15,"./DynamicsCompressorNode":16,"./GainNode":17,"./MediaElementAudioSourceNode":18,"./MediaStreamAudioDestinationNode":19,"./MediaStreamAudioSourceNode":20,"./OscillatorNode":23,"./PannerNode":24,"./PeriodicWave":25,"./ScriptProcessorNode":26,"./StereoPannerNode":27,"./WaveShaperNode":28,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./dom/EventTarget":36,"./dom/MediaStream":38,"./utils/Configuration":40,"./utils/Immigration":41,"./utils/defaults":45,"./utils/getAPIVersion":47,"./utils/toMicroseconds":51,"./validators":55}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1326,7 +1322,7 @@ var AudioListener = (_dec = props.typed(validators.isNumber, 1), _dec2 = props.t
   return AudioListener;
 }(), (_applyDecoratedDescriptor(_class.prototype, "dopplerFactor", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "dopplerFactor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "speedOfSound", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "speedOfSound"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setPosition", [_dec3, _dec4, _dec5], Object.getOwnPropertyDescriptor(_class.prototype, "setPosition"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setOrientation", [_dec6, _dec7, _dec8, _dec9, _dec10, _dec11], Object.getOwnPropertyDescriptor(_class.prototype, "setOrientation"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setVelocity", [_dec12, _dec13, _dec14], Object.getOwnPropertyDescriptor(_class.prototype, "setVelocity"), _class.prototype)), _class));
 exports.default = AudioListener;
-},{"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":42,"./validators":56}],8:[function(require,module,exports){
+},{"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":41,"./validators":55}],8:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -1728,7 +1724,7 @@ var AudioNode = (_dec = methods.contract({
 }(_EventTarget3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createAudioNode", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createAudioNode"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "context", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "context"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "numberOfInputs", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "numberOfInputs"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "numberOfOutputs", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "numberOfOutputs"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "channelCount", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "channelCount"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "channelCountMode", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "channelCountMode"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "channelInterpretation", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "channelInterpretation"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "connect", [_dec8, _dec9, _dec10, _dec11], Object.getOwnPropertyDescriptor(_class.prototype, "connect"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__disconnect$$Channel", [_dec12, _dec13], Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Channel"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__disconnect$$Selective1", [_dec14, _dec15], Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective1"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__disconnect$$Selective2", [_dec16, _dec17, _dec18], Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective2"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__disconnect$$Selective3", [_dec19, _dec20, _dec21, _dec22], Object.getOwnPropertyDescriptor(_class.prototype, "__disconnect$$Selective3"), _class.prototype)), _class));
 exports.default = AudioNode;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./decorators/methods":32,"./decorators/props":33,"./dom/EventTarget":36,"./utils/Configuration":41,"./utils/Immigration":42,"./utils/Junction":43,"./utils/defaults":46,"./utils/toJSON":51,"./utils/toNodeName":53,"./validators":56}],9:[function(require,module,exports){
+},{"./decorators/methods":32,"./decorators/props":33,"./dom/EventTarget":36,"./utils/Configuration":40,"./utils/Immigration":41,"./utils/Junction":42,"./utils/defaults":45,"./utils/toJSON":50,"./utils/toNodeName":52,"./validators":55}],9:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -2073,7 +2069,7 @@ var AudioParam = (_dec = props.typed(validators.isNumber, 0), _dec2 = props.read
 }(), (_applyDecoratedDescriptor(_class.prototype, "value", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "value"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "name", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "name"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "defaultValue", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "defaultValue"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setValueAtTime", [_dec4, _dec5], Object.getOwnPropertyDescriptor(_class.prototype, "setValueAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "linearRampToValueAtTime", [_dec6, _dec7], Object.getOwnPropertyDescriptor(_class.prototype, "linearRampToValueAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "exponentialRampToValueAtTime", [_dec8, _dec9], Object.getOwnPropertyDescriptor(_class.prototype, "exponentialRampToValueAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setTargetAtTime", [_dec10, _dec11, _dec12], Object.getOwnPropertyDescriptor(_class.prototype, "setTargetAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setValueCurveAtTime", [_dec13, _dec14, _dec15], Object.getOwnPropertyDescriptor(_class.prototype, "setValueCurveAtTime"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "cancelScheduledValues", [_dec16], Object.getOwnPropertyDescriptor(_class.prototype, "cancelScheduledValues"), _class.prototype)), _class));
 exports.default = AudioParam;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":42,"./utils/Junction":43,"./utils/defaults":46,"./utils/toJSON":51,"./utils/toSeconds":55,"./validators":56}],10:[function(require,module,exports){
+},{"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":41,"./utils/Junction":42,"./utils/defaults":45,"./utils/toJSON":50,"./utils/toSeconds":54,"./validators":55}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2133,7 +2129,7 @@ var AudioProcessingEvent = function (_Event) {
 }(_Event3.default);
 
 exports.default = AudioProcessingEvent;
-},{"./dom/Event":35,"./utils/Immigration":42}],11:[function(require,module,exports){
+},{"./dom/Event":35,"./utils/Immigration":41}],11:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2240,7 +2236,7 @@ var BiquadFilterNode = (_dec = props.enums(["lowpass", "highpass", "bandpass", "
   return BiquadFilterNode;
 }(_AudioNode3.default), _class2.$JSONKeys = ["type", "frequency", "detune", "Q", "gain"], _temp), (_applyDecoratedDescriptor(_class.prototype, "type", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "type"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "frequency", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "frequency"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "detune", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "detune"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "Q", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "Q"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "gain", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "gain"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "getFrequencyResponse", [_dec6, _dec7, _dec8], Object.getOwnPropertyDescriptor(_class.prototype, "getFrequencyResponse"), _class.prototype)), _class));
 exports.default = BiquadFilterNode;
-},{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":56}],12:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":55}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2331,7 +2327,7 @@ var ChannelMergerNode = (_dec = methods.param("numberOfInputs", validators.isPos
   return ChannelMergerNode;
 }(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createChannelMerger", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createChannelMerger"), _class.prototype)), _class));
 exports.default = ChannelMergerNode;
-},{"./AudioNode":8,"./decorators/methods":32,"./validators":56}],13:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/methods":32,"./validators":55}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2422,7 +2418,7 @@ var ChannelSplitterNode = (_dec = methods.param("numberOfOutputs", validators.is
   return ChannelSplitterNode;
 }(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createChannelSplitter", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createChannelSplitter"), _class.prototype)), _class));
 exports.default = ChannelSplitterNode;
-},{"./AudioNode":8,"./decorators/methods":32,"./validators":56}],14:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/methods":32,"./validators":55}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2517,7 +2513,7 @@ var ConvolverNode = (_dec = props.typed(validators.isNullOrInstanceOf(_AudioBuff
   return ConvolverNode;
 }(_AudioNode3.default), _class2.$JSONKeys = ["normalize"], _temp), (_applyDecoratedDescriptor(_class.prototype, "buffer", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "buffer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "normalize", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "normalize"), _class.prototype)), _class));
 exports.default = ConvolverNode;
-},{"./AudioBuffer":3,"./AudioNode":8,"./decorators/props":33,"./validators":56}],15:[function(require,module,exports){
+},{"./AudioBuffer":3,"./AudioNode":8,"./decorators/props":33,"./validators":55}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2622,7 +2618,7 @@ var DelayNode = (_dec = methods.param("maxDelayTime", validators.isPositiveNumbe
   return DelayNode;
 }(_AudioNode3.default), _class2.$JSONKeys = ["delayTime"], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createDelay", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createDelay"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "delayTime", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "delayTime"), _class.prototype)), _class));
 exports.default = DelayNode;
-},{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":56}],16:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":55}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2821,10 +2817,6 @@ var _AudioNode2 = require("./AudioNode");
 
 var _AudioNode3 = _interopRequireDefault(_AudioNode2);
 
-var _HTMLMediaElement = require("./dom/HTMLMediaElement");
-
-var _HTMLMediaElement2 = _interopRequireDefault(_HTMLMediaElement);
-
 var _methods = require("./decorators/methods");
 
 var methods = _interopRequireWildcard(_methods);
@@ -2872,7 +2864,7 @@ function _applyDecoratedDescriptor(target, property, decorators, descriptor, con
   return desc;
 }
 
-var MediaElementAudioSourceNode = (_dec = methods.param("mediaElement", validators.isInstanceOf(_HTMLMediaElement2.default)), (_class = (_temp = _class2 = function (_AudioNode) {
+var MediaElementAudioSourceNode = (_dec = methods.param("mediaElement", validators.isInstanceOf(window.HTMLMediaElement)), (_class = (_temp = _class2 = function (_AudioNode) {
   _inherits(MediaElementAudioSourceNode, _AudioNode);
 
   function MediaElementAudioSourceNode(admission, context, mediaElement) {
@@ -2900,7 +2892,7 @@ var MediaElementAudioSourceNode = (_dec = methods.param("mediaElement", validato
   return MediaElementAudioSourceNode;
 }(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createMediaElementSource", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createMediaElementSource"), _class.prototype)), _class));
 exports.default = MediaElementAudioSourceNode;
-},{"./AudioNode":8,"./decorators/methods":32,"./dom/HTMLMediaElement":38,"./validators":56}],19:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/methods":32,"./validators":55}],19:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3037,7 +3029,7 @@ var MediaStreamAudioSourceNode = (_dec = methods.param("mediaStream", validators
   return MediaStreamAudioSourceNode;
 }(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createMediaStreamSource", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "__createMediaStreamSource"), _class.prototype)), _class));
 exports.default = MediaStreamAudioSourceNode;
-},{"./AudioNode":8,"./decorators/methods":32,"./dom/MediaStream":39,"./validators":56}],21:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/methods":32,"./dom/MediaStream":38,"./validators":55}],21:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3097,7 +3089,7 @@ var OfflineAudioCompletionEvent = function (_Event) {
 }(_Event3.default);
 
 exports.default = OfflineAudioCompletionEvent;
-},{"./dom/Event":35,"./utils/Immigration":42}],22:[function(require,module,exports){
+},{"./dom/Event":35,"./utils/Immigration":41}],22:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3323,7 +3315,7 @@ var OfflineAudioContext = (_dec = methods.param("numberOfChannels", validators.i
   return OfflineAudioContext;
 }(_AudioContext3.default), (_applyDecoratedDescriptor(_class.prototype, "__OfflineAudioContext", [_dec, _dec2, _dec3], Object.getOwnPropertyDescriptor(_class.prototype, "__OfflineAudioContext"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "oncomplete", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "oncomplete"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "startRendering", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "startRendering"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "__transitionToState", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "__transitionToState"), _class.prototype)), _class));
 exports.default = OfflineAudioContext;
-},{"./AudioBuffer":3,"./AudioContext":5,"./OfflineAudioCompletionEvent":21,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/Configuration":41,"./utils/Immigration":42,"./validators":56}],23:[function(require,module,exports){
+},{"./AudioBuffer":3,"./AudioContext":5,"./OfflineAudioCompletionEvent":21,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/Configuration":40,"./utils/Immigration":41,"./validators":55}],23:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3522,7 +3514,7 @@ var OscillatorNode = (_dec = props.enums(["sine", "square", "sawtooth", "triangl
   return OscillatorNode;
 }(_AudioNode3.default), _class2.$JSONKeys = ["type", "frequency", "detune"], _temp), (_applyDecoratedDescriptor(_class.prototype, "type", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "type"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "frequency", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "frequency"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "detune", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "detune"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onended", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "onended"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "start", [_dec5, _dec6], Object.getOwnPropertyDescriptor(_class.prototype, "start"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "stop", [_dec7, _dec8], Object.getOwnPropertyDescriptor(_class.prototype, "stop"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setPeriodicWave", [_dec9], Object.getOwnPropertyDescriptor(_class.prototype, "setPeriodicWave"), _class.prototype)), _class));
 exports.default = OscillatorNode;
-},{"./AudioNode":8,"./PeriodicWave":25,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/toSeconds":55,"./validators":56}],24:[function(require,module,exports){
+},{"./AudioNode":8,"./PeriodicWave":25,"./decorators/methods":32,"./decorators/props":33,"./dom/Event":35,"./utils/toSeconds":54,"./validators":55}],24:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3644,7 +3636,7 @@ var PannerNode = (_dec = props.enums(["HRTF", "equalpower"]), _dec2 = props.enum
   return PannerNode;
 }(_AudioNode3.default), _class2.$JSONKeys = ["panningModel", "distanceModel", "refDistance", "maxDistance", "rolloffFactor", "coneInnerAngle", "coneOuterAngle", "coneOuterGain"], _temp), (_applyDecoratedDescriptor(_class.prototype, "panningModel", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "panningModel"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "distanceModel", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "distanceModel"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "refDistance", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "refDistance"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "maxDistance", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "maxDistance"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "rolloffFactor", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "rolloffFactor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "coneInnerAngle", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "coneInnerAngle"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "coneOuterAngle", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "coneOuterAngle"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "coneOuterGain", [_dec8], Object.getOwnPropertyDescriptor(_class.prototype, "coneOuterGain"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setPosition", [_dec9, _dec10, _dec11], Object.getOwnPropertyDescriptor(_class.prototype, "setPosition"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setOrientation", [_dec12, _dec13, _dec14], Object.getOwnPropertyDescriptor(_class.prototype, "setOrientation"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "setVelocity", [_dec15, _dec16, _dec17], Object.getOwnPropertyDescriptor(_class.prototype, "setVelocity"), _class.prototype)), _class));
 exports.default = PannerNode;
-},{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":56}],25:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/methods":32,"./decorators/props":33,"./validators":55}],25:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3761,7 +3753,7 @@ var PeriodicWave = (_dec = methods.param("real", validators.isInstanceOf(Float32
   return PeriodicWave;
 }(), (_applyDecoratedDescriptor(_class.prototype, "__createPeriodicWave", [_dec, _dec2, _dec3], Object.getOwnPropertyDescriptor(_class.prototype, "__createPeriodicWave"), _class.prototype)), _class));
 exports.default = PeriodicWave;
-},{"./decorators/methods":32,"./utils/Immigration":42,"./validators":56}],26:[function(require,module,exports){
+},{"./decorators/methods":32,"./utils/Immigration":41,"./validators":55}],26:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3914,7 +3906,7 @@ var ScriptProcessorNode = (_dec = methods.param("bufferSize", validators.isPosit
   return ScriptProcessorNode;
 }(_AudioNode3.default), _class2.$JSONKeys = [], _temp), (_applyDecoratedDescriptor(_class.prototype, "__createScriptProcessor", [_dec, _dec2, _dec3, _dec4], Object.getOwnPropertyDescriptor(_class.prototype, "__createScriptProcessor"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "bufferSize", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "bufferSize"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onaudioprocess", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "onaudioprocess"), _class.prototype)), _class));
 exports.default = ScriptProcessorNode;
-},{"./AudioBuffer":3,"./AudioNode":8,"./AudioProcessingEvent":10,"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":42,"./validators":56}],27:[function(require,module,exports){
+},{"./AudioBuffer":3,"./AudioNode":8,"./AudioProcessingEvent":10,"./decorators/methods":32,"./decorators/props":33,"./utils/Immigration":41,"./validators":55}],27:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4089,7 +4081,7 @@ var WaveShaperNode = (_dec = props.typed(validators.isNullOrInstanceOf(Float32Ar
   return WaveShaperNode;
 }(_AudioNode3.default), _class2.$JSONKeys = ["oversample"], _temp), (_applyDecoratedDescriptor(_class.prototype, "curve", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "curve"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "oversample", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "oversample"), _class.prototype)), _class));
 exports.default = WaveShaperNode;
-},{"./AudioNode":8,"./decorators/props":33,"./validators":56}],29:[function(require,module,exports){
+},{"./AudioNode":8,"./decorators/props":33,"./validators":55}],29:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -4161,10 +4153,6 @@ var _EventTarget2 = _interopRequireDefault(_EventTarget);
 var _HTMLElement = require("./dom/HTMLElement");
 
 var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
-
-var _HTMLMediaElement = require("./dom/HTMLMediaElement");
-
-var _HTMLMediaElement2 = _interopRequireDefault(_HTMLMediaElement);
 
 var _MediaStream = require("./dom/MediaStream");
 
@@ -4311,7 +4299,6 @@ var WebAudioTestAPI = {
   EventTarget: _EventTarget2.default,
   GainNode: _GainNode2.default,
   HTMLElement: _HTMLElement2.default,
-  HTMLMediaElement: _HTMLMediaElement2.default,
   MediaElementAudioSourceNode: _MediaElementAudioSourceNode2.default,
   MediaStream: _MediaStream2.default,
   MediaStreamAudioDestinationNode: _MediaStreamAudioDestinationNode2.default,
@@ -4393,7 +4380,7 @@ var WebAudioTestAPI = {
 
 exports.default = WebAudioTestAPI;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./AnalyserNode":2,"./AudioBuffer":3,"./AudioBufferSourceNode":4,"./AudioContext":5,"./AudioDestinationNode":6,"./AudioListener":7,"./AudioNode":8,"./AudioParam":9,"./AudioProcessingEvent":10,"./BiquadFilterNode":11,"./ChannelMergerNode":12,"./ChannelSplitterNode":13,"./ConvolverNode":14,"./DelayNode":15,"./DynamicsCompressorNode":16,"./GainNode":17,"./MediaElementAudioSourceNode":18,"./MediaStreamAudioDestinationNode":19,"./MediaStreamAudioSourceNode":20,"./OfflineAudioCompletionEvent":21,"./OfflineAudioContext":22,"./OscillatorNode":23,"./PannerNode":24,"./PeriodicWave":25,"./ScriptProcessorNode":26,"./StereoPannerNode":27,"./WaveShaperNode":28,"./WebAudioAPI":29,"./dom/Element":34,"./dom/Event":35,"./dom/EventTarget":36,"./dom/HTMLElement":37,"./dom/HTMLMediaElement":38,"./dom/MediaStream":39,"./utils/Configuration":41,"./utils/Immigration":42,"./utils/getAPIVersion":48}],31:[function(require,module,exports){
+},{"./AnalyserNode":2,"./AudioBuffer":3,"./AudioBufferSourceNode":4,"./AudioContext":5,"./AudioDestinationNode":6,"./AudioListener":7,"./AudioNode":8,"./AudioParam":9,"./AudioProcessingEvent":10,"./BiquadFilterNode":11,"./ChannelMergerNode":12,"./ChannelSplitterNode":13,"./ConvolverNode":14,"./DelayNode":15,"./DynamicsCompressorNode":16,"./GainNode":17,"./MediaElementAudioSourceNode":18,"./MediaStreamAudioDestinationNode":19,"./MediaStreamAudioSourceNode":20,"./OfflineAudioCompletionEvent":21,"./OfflineAudioContext":22,"./OscillatorNode":23,"./PannerNode":24,"./PeriodicWave":25,"./ScriptProcessorNode":26,"./StereoPannerNode":27,"./WaveShaperNode":28,"./WebAudioAPI":29,"./dom/Element":34,"./dom/Event":35,"./dom/EventTarget":36,"./dom/HTMLElement":37,"./dom/MediaStream":38,"./utils/Configuration":40,"./utils/Immigration":41,"./utils/getAPIVersion":47}],31:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4606,7 +4593,7 @@ function contract(_ref) {
     return methodConfig.descriptor;
   };
 }
-},{"../utils/format":47,"../utils/toS":54}],33:[function(require,module,exports){
+},{"../utils/format":46,"../utils/toS":53}],33:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -4773,7 +4760,7 @@ function typed(validator, defaultValue) {
   };
 }
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../utils/Immigration":42,"../utils/format":47,"../utils/toS":54}],34:[function(require,module,exports){
+},{"../utils/Immigration":41,"../utils/format":46,"../utils/toS":53}],34:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -4827,7 +4814,7 @@ var Element = function (_inLaws) {
 
 exports.default = Element;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../utils/inLaws":49,"./EventTarget":36}],35:[function(require,module,exports){
+},{"../utils/inLaws":48,"./EventTarget":36}],35:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -4898,7 +4885,7 @@ var Event = function (_inLaws) {
 
 exports.default = Event;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../utils/defaults":46,"../utils/inLaws":49}],36:[function(require,module,exports){
+},{"../utils/defaults":45,"../utils/inLaws":48}],36:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -5081,7 +5068,7 @@ var EventTarget = (_dec = methods.param("type", validators.isString), _dec2 = me
 }((0, _inLaws3.default)(global.EventTarget)), (_applyDecoratedDescriptor(_class.prototype, "addEventListener", [_dec, _dec2], Object.getOwnPropertyDescriptor(_class.prototype, "addEventListener"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "removeEventListener", [_dec3, _dec4], Object.getOwnPropertyDescriptor(_class.prototype, "removeEventListener"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "dispatchEvent", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "dispatchEvent"), _class.prototype)), _class));
 exports.default = EventTarget;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../decorators/methods":32,"../utils/inLaws":49,"../validators":56,"./Event":35,"events":67}],37:[function(require,module,exports){
+},{"../decorators/methods":32,"../utils/inLaws":48,"../validators":55,"./Event":35,"events":66}],37:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -5135,61 +5122,7 @@ var HTMLElement = function (_inLaws) {
 
 exports.default = HTMLElement;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../utils/inLaws":49,"./Element":34}],38:[function(require,module,exports){
-(function (global){(function (){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = undefined;
-
-var _inLaws2 = require("../utils/inLaws");
-
-var _inLaws3 = _interopRequireDefault(_inLaws2);
-
-var _HTMLElement2 = require("./HTMLElement");
-
-var _HTMLElement3 = _interopRequireDefault(_HTMLElement2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-global.HTMLMediaElement = global.HTMLMediaElement || window.HTMLMediaElement || function (_HTMLElement) {
-  _inherits(HTMLMediaElement, _HTMLElement);
-
-  function HTMLMediaElement() {
-    _classCallCheck(this, HTMLMediaElement);
-
-    var _this = _possibleConstructorReturn(this, (HTMLMediaElement.__proto__ || Object.getPrototypeOf(HTMLMediaElement)).call(this));
-
-    throw new TypeError("Illegal constructor");
-    return _this;
-  }
-
-  return HTMLMediaElement;
-}(_HTMLElement3.default);
-
-var HTMLMediaElement = function (_inLaws) {
-  _inherits(HTMLMediaElement, _inLaws);
-
-  function HTMLMediaElement() {
-    _classCallCheck(this, HTMLMediaElement);
-
-    return _possibleConstructorReturn(this, (HTMLMediaElement.__proto__ || Object.getPrototypeOf(HTMLMediaElement)).apply(this, arguments));
-  }
-
-  return HTMLMediaElement;
-}((0, _inLaws3.default)(global.HTMLMediaElement));
-
-exports.default = HTMLMediaElement;
-}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../utils/inLaws":49,"./HTMLElement":37}],39:[function(require,module,exports){
+},{"../utils/inLaws":48,"./Element":34}],38:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -5243,7 +5176,7 @@ var MediaStream = function (_inLaws) {
 
 exports.default = MediaStream;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../utils/inLaws":49,"./EventTarget":36}],40:[function(require,module,exports){
+},{"../utils/inLaws":48,"./EventTarget":36}],39:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -5263,7 +5196,7 @@ if (!global.WEB_AUDIO_TEST_API_IGNORE) {
 
 exports.default = _WebAudioTestAPI2.default;
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./WebAudioTestAPI":30}],41:[function(require,module,exports){
+},{"./WebAudioTestAPI":30}],40:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5340,7 +5273,7 @@ var Configuration = function () {
 }();
 
 exports.default = Configuration;
-},{"./api":44}],42:[function(require,module,exports){
+},{"./api":43}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5402,7 +5335,7 @@ var Immigration = function () {
 }();
 
 exports.default = Immigration;
-},{}],43:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5500,7 +5433,7 @@ var Junction = function () {
 }();
 
 exports.default = Junction;
-},{"./appendIfNotExists":45,"./removeIfExists":50}],44:[function(require,module,exports){
+},{"./appendIfNotExists":44,"./removeIfExists":49}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5541,7 +5474,7 @@ exports.default = {
     states: ["channel", "selective"]
   }
 };
-},{}],45:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5555,7 +5488,7 @@ function appendIfNotExists(list, value) {
     list.push(value);
   }
 }
-},{}],46:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5565,7 +5498,7 @@ exports.default = defaults;
 function defaults(value, defaultValue) {
   return typeof value !== "undefined" ? value : defaultValue;
 }
-},{}],47:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5584,7 +5517,7 @@ function format(text) {
   text = text.replace(/^ +/gm, "");
   return text;
 }
-},{}],48:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5601,7 +5534,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function getAPIVersion() {
   return _version__2.default;
 }
-},{"../__version__":31}],49:[function(require,module,exports){
+},{"../__version__":31}],48:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5617,7 +5550,7 @@ function inLaws(superClass) {
 
   return ctor;
 }
-},{}],50:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5633,7 +5566,7 @@ function removeIfExists(list, value) {
 
   return null;
 }
-},{}],51:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5663,7 +5596,7 @@ function toJSON(node, func) {
 
   return result;
 }
-},{"./toNodeName":53}],52:[function(require,module,exports){
+},{"./toNodeName":52}],51:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5699,7 +5632,7 @@ function toMicroseconds(time) {
 
   return value;
 }
-},{}],53:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5712,7 +5645,7 @@ function toNodeName(obj) {
   }
   return obj.$name;
 }
-},{}],54:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5750,7 +5683,7 @@ function toS(value) {
 
   return "a " + name;
 }
-},{}],55:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5767,7 +5700,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function toSeconds(time) {
   return (0, _toMicroseconds2.default)(time) / (1000 * 1000);
 }
-},{"./toMicroseconds":52}],56:[function(require,module,exports){
+},{"./toMicroseconds":51}],55:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5827,7 +5760,7 @@ exports.isNumber = _isNumber3.default;
 exports.isPositiveInteger = _isPositiveInteger3.default;
 exports.isPositiveNumber = _isPositiveNumber3.default;
 exports.isString = _isString3.default;
-},{"./isAudioSource":57,"./isBoolean":58,"./isFunction":59,"./isInstanceOf":60,"./isInteger":61,"./isNullOrInstanceOf":62,"./isNumber":63,"./isPositiveInteger":64,"./isPositiveNumber":65,"./isString":66}],57:[function(require,module,exports){
+},{"./isAudioSource":56,"./isBoolean":57,"./isFunction":58,"./isInstanceOf":59,"./isInteger":60,"./isNullOrInstanceOf":61,"./isNumber":62,"./isPositiveInteger":63,"./isPositiveNumber":64,"./isString":65}],56:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -5842,7 +5775,7 @@ exports.default = {
   }
 };
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],58:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5855,7 +5788,7 @@ exports.default = {
     return typeof value === "boolean";
   }
 };
-},{}],59:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5868,7 +5801,7 @@ exports.default = {
     return typeof value === "function";
   }
 };
-},{}],60:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5884,7 +5817,7 @@ function isInstanceOf(klass) {
     }
   };
 }
-},{}],61:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5897,7 +5830,7 @@ exports.default = {
     return value === (value | 0);
   }
 };
-},{}],62:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5913,7 +5846,7 @@ function isNullOrInstanceOf(klass) {
     }
   };
 }
-},{}],63:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5926,7 +5859,7 @@ exports.default = {
     return value === +value;
   }
 };
-},{}],64:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5939,7 +5872,7 @@ exports.default = {
     return value === (value | 0) && 0 <= value;
   }
 };
-},{}],65:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5952,7 +5885,7 @@ exports.default = {
     return value === +value && 0 <= value;
   }
 };
-},{}],66:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5965,7 +5898,7 @@ exports.default = {
     return typeof value === "string";
   }
 };
-},{}],67:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
