@@ -1,5 +1,5 @@
 {
-  "name": "web-audio-test-api",
+  "name": "lumen5-web-audio-test-api",
   "description": "Web Audio API test library for CI",
   "version": "0.5.2",
   "author": "Nao Yonamine <mohayonao@gmail.com>",
@@ -33,7 +33,7 @@
     "lib",
     "build"
   ],
-  "homepage": "https://github.com/mohayonao/web-audio-test-api/",
+  "homepage": "https://github.com/Lumen5/web-audio-test-api",
   "keywords": [
     "test",
     "web audio api"
@@ -42,7 +42,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/mohayonao/web-audio-test-api.git"
+    "url": "https://github.com/Lumen5/web-audio-test-api.git"
   },
   "scripts": {
     "build": "npm run build:to5 && npm run build:browser",
